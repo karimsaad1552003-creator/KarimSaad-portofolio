@@ -147,6 +147,7 @@ export const portfolioData: PortfolioData = {
     about: [
       "I am a Computer Science student at the Arab Academy for Science, Technology & Maritime Transport, specializing in data analysis and artificial intelligence while shipping production software as a full-stack developer.",
       "As Co-founder of Ascendra and Full Stack Developer at Vertex Reviews, I work on real products — from conversion-focused business platforms to custom software systems serving clients internationally.",
+      "I also spent a year as a real estate sales agent at ElitePlus (2025–2026), which strengthened my client-facing communication, negotiation, and relationship-building skills — capabilities I bring into technical collaboration and stakeholder discussions.",
       "I enjoy problems that sit at the intersection of software engineering, data, and product: turning messy requirements into clear systems, interactive analytics, and experiences that hold up in production.",
       "I am currently strengthening my profile toward competitive software engineering, data, and AI roles at major technology companies, startups, and international organizations.",
     ],
@@ -155,6 +156,7 @@ export const portfolioData: PortfolioData = {
       "Data analysis & BI",
       "Machine learning workflows",
       "Requirements & system design",
+      "Client communication & sales",
     ],
     currentlyToward:
       "Production engineering roles where software, data, and AI meet real business problems.",
@@ -221,6 +223,16 @@ export const portfolioData: PortfolioData = {
       id: "security",
       label: "Networking & Security",
       skills: ["CCNA", "Cisco CyberOps Associate (CBROPS)"],
+    },
+    {
+      id: "professional",
+      label: "Professional Skills",
+      skills: [
+        "Client communication",
+        "Sales & negotiation",
+        "Relationship building",
+        "Stakeholder collaboration",
+      ],
     },
   ],
 
@@ -468,6 +480,22 @@ export const portfolioData: PortfolioData = {
       technologies: ["Full-stack web development"],
     },
     {
+      id: "eliteplus",
+      company: "ElitePlus",
+      role: "Real Estate Agent (Sales)",
+      location: "Egypt",
+      start: "2025",
+      end: "2026",
+      type: "full-time",
+      summary:
+        "One year in real estate sales at ElitePlus — developing strong client communication, negotiation, and relationship-building skills in a client-facing commercial environment.",
+      responsibilities: [
+        "Worked as a real estate sales agent, engaging clients through the sales process",
+        "Built strong communication and interpersonal skills through daily client interaction",
+        "Practiced negotiation and relationship management in a competitive sales setting",
+      ],
+    },
+    {
       id: "telecom-egypt",
       company: "Telecom Egypt",
       role: "Machine and Deep Learning Developer",
@@ -579,15 +607,22 @@ export const portfolioData: PortfolioData = {
         "Telecom Egypt (ML/DL) and AppSoft (requirements) → shipping products in industry.",
     },
     {
-      id: "current",
+      id: "sales",
       label: "05",
+      title: "Client-facing sales experience",
+      description:
+        "One year as a real estate sales agent at ElitePlus (2025–2026) — strong communication and negotiation.",
+    },
+    {
+      id: "current",
+      label: "06",
       title: "Ascendra & Vertex Reviews",
       description:
         "Co-founder and full-stack developer building software for Egypt and US businesses.",
     },
     {
       id: "future",
-      label: "06",
+      label: "07",
       title: "Next direction",
       description:
         "Competitive software, data, and AI engineering roles at major technology companies.",
