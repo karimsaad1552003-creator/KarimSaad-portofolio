@@ -28,6 +28,38 @@ def set_run_font(run, size=10, bold=False, italic=False, color=None, name="Calib
         run.font.color.rgb = color
 
 
+def add_hyperlink(paragraph, text, url, size=9):
+    part = paragraph.part
+    r_id = part.relate_to(
+        url,
+        "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+        is_external=True,
+    )
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("r:id"), r_id)
+    run = OxmlElement("w:r")
+    r_pr = OxmlElement("w:rPr")
+    color = OxmlElement("w:color")
+    color.set(qn("w:val"), "595959")
+    r_pr.append(color)
+    underline = OxmlElement("w:u")
+    underline.set(qn("w:val"), "single")
+    r_pr.append(underline)
+    font_size = OxmlElement("w:sz")
+    font_size.set(qn("w:val"), str(int(size * 2)))
+    r_pr.append(font_size)
+    font = OxmlElement("w:rFonts")
+    font.set(qn("w:ascii"), "Calibri")
+    font.set(qn("w:hAnsi"), "Calibri")
+    r_pr.append(font)
+    run.append(r_pr)
+    text_el = OxmlElement("w:t")
+    text_el.text = text
+    run.append(text_el)
+    hyperlink.append(run)
+    paragraph._p.append(hyperlink)
+
+
 def set_paragraph_spacing(paragraph, before=0, after=2, line=1.0):
     pf = paragraph.paragraph_format
     pf.space_before = Pt(before)
@@ -173,62 +205,38 @@ def build():
     contact.alignment = WD_ALIGN_PARAGRAPH.CENTER
     set_paragraph_spacing(contact, before=0, after=4, line=1.0)
     contact_run = contact.add_run(
-        "karimsaad1552003@gmail.com   |   01145222298   |   "
-        "github.com/karimsaad1552003-creator   |   Alexandria, Egypt"
+        "+20 114 522 2298 | karimsaad1552003@gmail.com | "
+        "github.com/karimsaad1552003-creator | Portfolio: "
     )
-    set_run_font(contact_run, size=9)
+    set_run_font(contact_run, size=8.5)
+    add_hyperlink(
+        contact,
+        "karim-saad-portofolio.vercel.app",
+        "https://karim-saad-portofolio.vercel.app/",
+        size=8.5,
+    )
+    location_run = contact.add_run(" | Egypt")
+    set_run_font(location_run, size=8.5)
 
-    # EDUCATION
-    section_title(doc, "Education")
-    left_right(
-        doc,
-        "Arab Academy for Science, Technology & Maritime Transport",
-        "Egypt  |  2022 - 2026",
-    )
-    body(doc, "B.Sc. in Computer Science - Data Analysis & Artificial Intelligence focus")
-    left_right(doc, "College Saint-Marc", "Alexandria, Egypt")
+    for line in ("Full Stack Developer", "Data Analyst"):
+        title = doc.add_paragraph()
+        title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        set_paragraph_spacing(title, before=0, after=0, line=1.0)
+        title_run = title.add_run(line)
+        set_run_font(title_run, size=11)
 
-    # SKILLS
-    section_title(doc, "Skills")
-    labeled_line(doc, "Programming Languages", "Python, Java, C, SQL")
-    labeled_line(
+    section_title(doc, "Professional Summary")
+    body(
         doc,
-        "Languages",
-        "Arabic: Native    English: Fluent    French: DELF B1, Fluent",
-    )
-    labeled_line(
-        doc,
-        "Frameworks & Tools",
-        "Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, "
-        "Power BI, Tableau, Excel, Microsoft Project, Git & GitHub",
-    )
-    labeled_line(
-        doc,
-        "Domains",
-        "Full-Stack Development, Data Analysis, Machine Learning, Deep Learning, "
-        "Requirements Analysis, Business Intelligence",
-    )
-    labeled_line(
-        doc,
-        "Professional Skills",
-        "Client communication, Sales & negotiation, Relationship building, "
-        "Stakeholder collaboration",
+        "Information Systems graduate seeking full-stack developer and data analyst roles. "
+        "Full-stack work includes co-founding Ascendra, where we build school systems and gate systems, "
+        "and Vertex Reviews, where I delivered 20+ websites plus logos, flyers, and printable menus "
+        "for business identity. Data analysis work includes Power BI dashboards, machine learning "
+        "workflows, and a machine learning internship at Telecom Egypt. A year and a half in real estate "
+        "sales at ElitePlus strengthened client communication and negotiation.",
     )
 
-    # WORK EXPERIENCE & CERTIFICATES
-    section_title(doc, "Work Experience & Certificates")
-
-    left_right(doc, "Co-founder - Ascendra", "Alexandria, Egypt  |  Present")
-    bullet(
-        doc,
-        "Co-founded a technology studio building custom software, conversion-focused websites, "
-        "and offline-first IoT systems for clients in Egypt and the United States.",
-    )
-    bullet(
-        doc,
-        "Contribute to full-stack product delivery and support Ascendra as authorized Egypt "
-        "operations partner of Vertex Reviews (New Jersey, USA).",
-    )
+    section_title(doc, "Experience")
 
     left_right(
         doc,
@@ -237,20 +245,19 @@ def build():
     )
     bullet(
         doc,
-        "Build and maintain production web experiences for Vertex Reviews, a Google Business "
-        "Profile and reputation management company serving US businesses.",
+        "Delivered 20+ websites and business rebranding through logos, flyers, and printable menus.",
     )
-    bullet(
-        doc,
-        "Support service storytelling, package presentation, and client conversion flows "
-        "across the Ascendra x Vertex partnership.",
-    )
+    bullet(doc, "Live product: https://www.vertexreviews.com")
+
+    left_right(doc, "Co-founder - Ascendra", "Egypt  |  Present")
+    bullet(doc, "Co-founded the studio. We build school systems and gate systems.")
+    bullet(doc, "Live product: https://ascendrasol.com/")
 
     left_right(doc, "Real Estate Agent (Sales) - ElitePlus", "Egypt  |  2025 - 2026")
     bullet(
         doc,
-        "Spent one year in client-facing real estate sales, building strong communication, "
-        "negotiation, and relationship-management skills.",
+        "Spent a year and a half in client-facing sales, building communication, negotiation, "
+        "and relationship management.",
     )
 
     left_right(
@@ -260,78 +267,78 @@ def build():
     )
     bullet(
         doc,
-        "Worked on machine and deep learning development tasks, including data preparation "
-        "and model-oriented problem solving in an enterprise environment.",
+        "Worked on machine and deep learning tasks, including data preparation and model development.",
     )
 
     left_right(doc, "Requirements Analyst (Intern) - AppSoft", "Egypt  |  Internship")
-    bullet(
+    bullet(doc, "Analyzed software requirements and wrote specifications for implementation.")
+
+    section_title(doc, "Education")
+    degree = doc.add_paragraph()
+    set_paragraph_spacing(degree, before=2, after=0, line=1.05)
+    degree_run = degree.add_run("Bachelor of Information Systems")
+    set_run_font(degree_run, size=10, bold=True)
+    body(doc, "College of Computing and Information Technology")
+    left_right(
         doc,
-        "Analyzed software requirements, clarified system expectations, and supported "
-        "structured documentation for implementation-ready specifications.",
+        "Arab Academy for Science, Technology & Maritime Transport",
+        "Egypt  |  2022 - 2026",
     )
 
-    certs = doc.add_paragraph()
-    set_paragraph_spacing(certs, before=6, after=2, line=1.05)
-    cert_label = certs.add_run("Certificates: ")
-    set_run_font(cert_label, size=10, bold=True)
-    cert_value = certs.add_run(
-        "Cisco CyberOps Associate (CBROPS) - NTI (Excellent); CCNA - Cisco; "
-        "Odoo Technical Bootcamp - Feb 2026"
-    )
-    set_run_font(cert_value, size=10)
-
-    # PROJECTS
-    section_title(doc, "Projects")
-
-    project_line(doc, "Vertex Reviews Platform  |  Full-stack web", "https://www.vertexreviews.com")
-    bullet(
-        doc,
-        "Production website and service platform for Google Business Profile optimization, "
-        "review monitoring, growth strategy, and service packages for US businesses.",
-    )
-
-    project_line(
-        doc,
-        "Ascendra  |  React, Next.js, TypeScript, NestJS, PostgreSQL, Flutter, Python",
-        "https://maroweb.net/Ascendra/",
-    )
-    bullet(
-        doc,
-        "Co-founded technology studio shipping custom software, business websites, and "
-        "offline-first IoT systems (including Sahel Gate and Full School System) for US and Egypt clients.",
-    )
+    section_title(doc, "Academic Projects")
 
     project_line(doc, "Video Game Sales Analysis  |  Power BI")
     bullet(
         doc,
-        "Interactive Power BI dashboard analyzing 16,000+ video game sales records across "
-        "regions to identify platform, genre, and market trends for forecasting and targeting.",
+        "Interactive dashboard on 16,000+ sales records across regions, platforms, and genres.",
     )
 
     project_line(
         doc,
-        "Machine & Deep Learning Workflows  |  Python, Pandas, Scikit-learn, TensorFlow, PyTorch",
+        "Machine and Deep Learning Workflows  |  Python, Pandas, Scikit-learn, TensorFlow, PyTorch",
     )
     bullet(
         doc,
-        "End-to-end ML workflows covering data collection, cleaning, transformation, model "
-        "development, and evaluation to support data-driven decisions.",
+        "End-to-end workflows: collection, cleaning, transformation, model development, and evaluation.",
     )
 
-    project_line(doc, "Ticketing Management System Design  |  ERD, Data modeling")
+    project_line(doc, "Ticketing Management System  |  ERD, data modeling")
     bullet(
         doc,
-        "Designed ERD, data dictionary, and technical specification covering tickets, users, "
-        "departments, priorities, and status logs.",
+        "ERD, data dictionary, and technical specification for tickets, users, departments, "
+        "priorities, and status logs.",
     )
 
-    project_line(doc, "Pharmacy Management System Planning  |  Microsoft Project")
-    bullet(
+    project_line(doc, "Pharmacy Management System  |  Microsoft Project")
+    bullet(doc, "Scope, tasks, timelines, resources, Gantt chart, and milestones.")
+
+    section_title(doc, "Skills")
+    labeled_line(doc, "Programming languages", "Python, Java, C, SQL")
+    labeled_line(
         doc,
-        "Defined project scope, tasks, timelines, resources, Gantt charts, and milestones "
-        "for a Pharmacy Management System using Microsoft Project.",
+        "Data and AI",
+        "Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, Excel",
     )
+    labeled_line(
+        doc,
+        "Analysis",
+        "Requirements analysis, ERD, technical specifications, Microsoft Project, Git",
+    )
+    labeled_line(
+        doc,
+        "Professional",
+        "Client communication, sales and negotiation, relationship building",
+    )
+    labeled_line(
+        doc,
+        "Spoken languages",
+        "Arabic (Native), English (Fluent), French (DELF B1, Fluent)",
+    )
+
+    section_title(doc, "Certifications")
+    bullet(doc, "Cisco CyberOps Associate (CBROPS), NTI - Excellent")
+    bullet(doc, "CCNA, Cisco")
+    bullet(doc, "Odoo Technical Bootcamp - February 2026, 8-hour course")
 
     OUT_PUBLIC.parent.mkdir(parents=True, exist_ok=True)
     doc.save(str(OUT_PUBLIC))

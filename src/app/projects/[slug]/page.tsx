@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { getProjectBySlug, portfolioData } from "@/data/portfolio";
 import { LinkButton } from "@/components/ui/Button";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -98,23 +99,33 @@ export default async function ProjectPage({ params }: PageProps) {
 
       {project.image ? (
         <div className="container-page mb-12">
-          <div className="relative aspect-[16/8] overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--surface)]">
+          <div className="relative flex aspect-[16/8] items-center justify-center overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--surface)]">
             <Image
               src={project.image}
-              alt={`${project.title} visual`}
+              alt={`${project.title} homepage`}
               fill
               className="object-cover object-top"
               sizes="100vw"
               priority
             />
+            <div className="absolute inset-0 bg-black/45" />
+            {project.logo ? (
+              <div className="relative">
+                <BrandLogo src={project.logo} alt={`${project.title} logo`} size="lg" />
+              </div>
+            ) : null}
           </div>
         </div>
       ) : (
         <div className="container-page mb-12">
-          <div className="relative flex aspect-[16/8] items-end overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-elevated)] p-8 grid-bg">
-            <p className="font-[family-name:var(--font-display)] text-3xl font-semibold md:text-4xl">
-              {project.title}
-            </p>
+          <div className="relative flex aspect-[16/8] items-center justify-center overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-elevated)] p-8 grid-bg">
+            {project.logo ? (
+              <BrandLogo src={project.logo} alt={`${project.title} logo`} size="lg" />
+            ) : (
+              <p className="font-[family-name:var(--font-display)] text-3xl font-semibold md:text-4xl">
+                {project.title}
+              </p>
+            )}
           </div>
         </div>
       )}

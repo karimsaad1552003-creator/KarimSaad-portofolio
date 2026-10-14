@@ -5,43 +5,55 @@ import { featuredProjects, portfolioData } from "@/data/portfolio";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { LinkButton } from "@/components/ui/Button";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 function ProjectCover({
   title,
   image,
   category,
+  logo,
 }: {
   title: string;
   image?: string;
   category: string;
+  logo?: string;
 }) {
+  const mark = logo ? (
+    <BrandLogo src={logo} alt={`${title} logo`} size="lg" />
+  ) : null;
+
   if (image) {
     return (
-      <div className="relative aspect-[16/10] overflow-hidden bg-[var(--surface)]">
+      <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-[var(--surface)]">
         <Image
           src={image}
-          alt={`${title} preview`}
+          alt={`${title} homepage`}
           fill
           className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-black/45" />
         <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-xs text-white backdrop-blur">
           {category}
         </span>
+        {mark ? <div className="relative">{mark}</div> : null}
       </div>
     );
   }
 
   return (
-    <div className="relative flex aspect-[16/10] items-end overflow-hidden bg-[linear-gradient(145deg,var(--surface),var(--bg-elevated))] p-6">
+    <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-[linear-gradient(145deg,var(--surface),var(--bg-elevated))] p-6">
       <div className="absolute inset-0 grid-bg opacity-60" />
       <span className="absolute left-4 top-4 rounded-full border border-[var(--border)] bg-[var(--bg)] px-3 py-1 text-xs text-[var(--text-muted)]">
         {category}
       </span>
-      <p className="relative font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--text)]">
-        {title}
-      </p>
+      {mark ? (
+        <div className="relative">{mark}</div>
+      ) : (
+        <p className="relative font-[family-name:var(--font-display)] text-2xl font-semibold text-[var(--text)]">
+          {title}
+        </p>
+      )}
     </div>
   );
 }
@@ -75,6 +87,7 @@ export function ProjectsSection() {
                     title={project.title}
                     image={project.image}
                     category={project.category}
+                    logo={project.logo}
                   />
                   <div className="flex flex-col justify-center p-6 md:p-8 lg:p-10">
                     <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)]">

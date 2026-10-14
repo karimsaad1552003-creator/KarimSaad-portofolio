@@ -3,7 +3,7 @@ Generate Karim's CV using data/Resume.pdf as the visual/format reference.
 Format cues from reference:
 - US Letter, Calibri, dark name color
 - Contact row under name
-- Sections: EDUCATION -> SKILLS -> WORK EXPERIENCE & CERTIFICATES -> PROJECTS
+- Sections: EDUCATION -> SKILLS -> WORK EXPERIENCE -> CERTIFICATIONS -> PROJECTS
 - Section titles uppercase + underline
 - Left bold title, right italic location | dates
 - Skill categories bold + inline lists
@@ -16,6 +16,7 @@ from fpdf import FPDF
 ROOT = Path(__file__).resolve().parents[1]
 OUT_PUBLIC = ROOT / "public" / "assets" / "cv" / "Karim-CV.pdf"
 OUT_DATA = ROOT / "data" / "Karim-CV.pdf"
+OUT_ATS = ROOT / "data" / "Karim-CV-ats.pdf"
 FONT_DIR = Path(r"C:\Windows\Fonts")
 
 # Reference accent (~Calibri-Bold name color from Resume.pdf)
@@ -110,81 +111,66 @@ def build():
     pdf.set_text_color(*NAME_COLOR)
     pdf.cell(0, 22, "Karim Mohamed Saad", align="C", new_x="LMARGIN", new_y="NEXT")
 
-    # Contact row (centered, compact — mirrors reference contact line)
-    pdf.set_font("Calibri", "", 9)
+    # Contact row. 8.5pt keeps phone, email, GitHub, portfolio, and Egypt on one line.
+    pdf.set_font("Calibri", "", 8.5)
     pdf.set_text_color(*TEXT)
-    contact = (
-        "karimsaad1552003@gmail.com   |   01145222298   |   "
-        "github.com/karimsaad1552003-creator   |   Alexandria, Egypt"
+    before = (
+        "+20 114 522 2298 | karimsaad1552003@gmail.com | "
+        "github.com/karimsaad1552003-creator | Portfolio: "
     )
-    pdf.cell(0, 12, contact, align="C", new_x="LMARGIN", new_y="NEXT")
+    portfolio_host = "karim-saad-portofolio.vercel.app"
+    after = " | Egypt"
+    before_w = pdf.get_string_width(before)
+    host_w = pdf.get_string_width(portfolio_host)
+    after_w = pdf.get_string_width(after)
+    pdf.set_x((pdf.w - before_w - host_w - after_w) / 2)
+    pdf.cell(before_w, 12, before)
+    pdf.set_text_color(*LINK_COLOR)
+    pdf.cell(host_w, 12, portfolio_host, link=f"https://{portfolio_host}/")
+    pdf.set_text_color(*TEXT)
+    pdf.cell(after_w, 12, after, new_x="LMARGIN", new_y="NEXT")
+    pdf.set_font("Calibri", "", 11)
+    pdf.set_text_color(*TEXT)
+    pdf.cell(0, 14, "Full Stack Developer", align="C", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(0, 14, "Data Analyst", align="C", new_x="LMARGIN", new_y="NEXT")
     pdf.ln(2)
 
-    # ----- EDUCATION -----
-    pdf.section_title("Education")
-    pdf.left_right(
-        "Arab Academy for Science, Technology & Maritime Transport",
-        "Egypt  |  2022 - 2026",
-    )
+    # ----- SUMMARY -----
+    pdf.section_title("Professional Summary")
     pdf.set_font("Calibri", "", 10)
     pdf.multi_cell(
         0,
         12,
-        "B.Sc. in Computer Science - Data Analysis & Artificial Intelligence focus",
-    )
-    pdf.ln(2)
-    pdf.left_right("College Saint-Marc", "Alexandria, Egypt")
-    pdf.ln(1)
-
-    # ----- SKILLS -----
-    pdf.section_title("Skills")
-    pdf.labeled_line("Programming Languages", "Python, Java, C, SQL")
-    pdf.labeled_line("Languages", "Arabic: Native    English: Fluent    French: DELF B1, Fluent")
-    pdf.labeled_line(
-        "Frameworks & Tools",
-        "Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, Excel, Microsoft Project, Git & GitHub",
-    )
-    pdf.labeled_line(
-        "Domains",
-        "Full-Stack Development, Data Analysis, Machine Learning, Deep Learning, Requirements Analysis, Business Intelligence",
-    )
-    pdf.labeled_line(
-        "Professional Skills",
-        "Client communication, Sales & negotiation, Relationship building, Stakeholder collaboration",
+        "Information Systems graduate seeking full-stack developer and data analyst roles. "
+        "Full-stack work includes co-founding Ascendra, where we build school systems and gate systems, "
+        "and Vertex Reviews, where I delivered 20+ websites plus logos, flyers, and printable menus "
+        "for business identity. Data analysis work includes Power BI dashboards, machine learning "
+        "workflows, and a machine learning internship at Telecom Egypt. A year and a half in real estate "
+        "sales at ElitePlus strengthened client communication and negotiation.",
     )
 
-    # ----- WORK EXPERIENCE & CERTIFICATES -----
-    pdf.section_title("Work Experience & Certificates")
-
-    pdf.left_right("Co-founder - Ascendra", "Alexandria, Egypt  |  Present")
-    pdf.bullet(
-        "Co-founded a technology studio building custom software, conversion-focused websites, "
-        "and offline-first IoT systems for clients in Egypt and the United States."
-    )
-    pdf.bullet(
-        "Contribute to full-stack product delivery and support Ascendra as authorized Egypt "
-        "operations partner of Vertex Reviews (New Jersey, USA)."
-    )
-    pdf.ln(2)
+    # ----- EXPERIENCE -----
+    pdf.section_title("Experience")
 
     pdf.left_right(
         "Full Stack Developer - Vertex Reviews",
         "New Jersey, USA (remote)  |  Present",
     )
     pdf.bullet(
-        "Build and maintain production web experiences for Vertex Reviews, a Google Business "
-        "Profile and reputation management company serving US businesses."
+        "Delivered 20+ websites and business rebranding through logos, flyers, and printable menus."
     )
-    pdf.bullet(
-        "Support service storytelling, package presentation, and client conversion flows "
-        "across the Ascendra x Vertex partnership."
-    )
+    pdf.bullet("Live product: https://www.vertexreviews.com")
+    pdf.ln(2)
+
+    pdf.left_right("Co-founder - Ascendra", "Egypt  |  Present")
+    pdf.bullet("Co-founded the studio. We build school systems and gate systems.")
+    pdf.bullet("Live product: https://ascendrasol.com/")
     pdf.ln(2)
 
     pdf.left_right("Real Estate Agent (Sales) - ElitePlus", "Egypt  |  2025 - 2026")
     pdf.bullet(
-        "Spent one year in client-facing real estate sales, building strong communication, "
-        "negotiation, and relationship-management skills."
+        "Spent a year and a half in client-facing sales, building communication, negotiation, "
+        "and relationship management."
     )
     pdf.ln(2)
 
@@ -193,67 +179,51 @@ def build():
         "Egypt  |  Internship",
     )
     pdf.bullet(
-        "Worked on machine and deep learning development tasks, including data preparation "
-        "and model-oriented problem solving in an enterprise environment."
+        "Worked on machine and deep learning tasks, including data preparation and model development."
     )
     pdf.ln(2)
 
     pdf.left_right("Requirements Analyst (Intern) - AppSoft", "Egypt  |  Internship")
     pdf.bullet(
-        "Analyzed software requirements, clarified system expectations, and supported "
-        "structured documentation for implementation-ready specifications."
+        "Analyzed software requirements and wrote specifications for implementation."
     )
-    pdf.ln(3)
+    pdf.ln(1)
 
+    # ----- EDUCATION -----
+    pdf.section_title("Education")
     pdf.set_font("Calibri", "B", 10)
-    pdf.write(12, "Certificates: ")
+    pdf.cell(0, 12, "Bachelor of Information Systems", new_x="LMARGIN", new_y="NEXT")
     pdf.set_font("Calibri", "", 10)
-    pdf.write(
-        12,
-        "Cisco CyberOps Associate (CBROPS) - NTI (Excellent); CCNA - Cisco; "
-        "Odoo Technical Bootcamp - Feb 2026",
+    pdf.cell(0, 12, "College of Computing and Information Technology", new_x="LMARGIN", new_y="NEXT")
+    pdf.left_right(
+        "Arab Academy for Science, Technology & Maritime Transport",
+        "Egypt  |  2022 - 2026",
     )
-    pdf.ln(14)
+    pdf.ln(1)
 
-    # ----- PROJECTS -----
-    pdf.section_title("Projects")
+    # ----- PROJECTS (academic) -----
+    pdf.section_title("Academic Projects")
 
     projects = [
         (
-            "Vertex Reviews Platform  |  Full-stack web",
-            "https://www.vertexreviews.com",
-            "Production website and service platform for Google Business Profile optimization, "
-            "review monitoring, growth strategy, and service packages for US businesses.",
-        ),
-        (
-            "Ascendra  |  React, Next.js, TypeScript, NestJS, PostgreSQL, Flutter, Python",
-            "https://maroweb.net/Ascendra/",
-            "Co-founded technology studio shipping custom software, business websites, and "
-            "offline-first IoT systems (including Sahel Gate and Full School System) for US and Egypt clients.",
-        ),
-        (
             "Video Game Sales Analysis  |  Power BI",
             None,
-            "Interactive Power BI dashboard analyzing 16,000+ video game sales records across "
-            "regions to identify platform, genre, and market trends for forecasting and targeting.",
+            "Interactive dashboard on 16,000+ sales records across regions, platforms, and genres.",
         ),
         (
-            "Machine & Deep Learning Workflows  |  Python, Pandas, Scikit-learn, TensorFlow, PyTorch",
+            "Machine and Deep Learning Workflows  |  Python, Pandas, Scikit-learn, TensorFlow, PyTorch",
             None,
-            "End-to-end ML workflows covering data collection, cleaning, transformation, model "
-            "development, and evaluation to support data-driven decisions.",
+            "End-to-end workflows: collection, cleaning, transformation, model development, and evaluation.",
         ),
         (
-            "Ticketing Management System Design  |  ERD, Data modeling",
+            "Ticketing Management System  |  ERD, data modeling",
             None,
-            "Designed ERD, data dictionary, and technical specification covering tickets, users, "
-            "departments, priorities, and status logs.",
+            "ERD, data dictionary, and technical specification for tickets, users, departments, priorities, and status logs.",
         ),
         (
-            "Pharmacy Management System Planning  |  Microsoft Project",
+            "Pharmacy Management System  |  Microsoft Project",
             None,
-            "Defined project scope, tasks, timelines, resources, Gantt charts, and milestones "
-            "for a Pharmacy Management System using Microsoft Project.",
+            "Scope, tasks, timelines, resources, Gantt chart, and milestones.",
         ),
     ]
 
@@ -273,17 +243,56 @@ def build():
         pdf.bullet(desc)
         pdf.ln(1)
 
+    # ----- SKILLS -----
+    pdf.section_title("Skills")
+    pdf.labeled_line("Programming languages", "Python, Java, C, SQL")
+    pdf.labeled_line(
+        "Data and AI",
+        "Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, Excel",
+    )
+    pdf.labeled_line(
+        "Analysis",
+        "Requirements analysis, ERD, technical specifications, Microsoft Project, Git",
+    )
+    pdf.labeled_line(
+        "Professional",
+        "Client communication, sales and negotiation, relationship building",
+    )
+    pdf.labeled_line(
+        "Spoken languages",
+        "Arabic (Native), English (Fluent), French (DELF B1, Fluent)",
+    )
+
+    # ----- CERTIFICATIONS -----
+    pdf.section_title("Certifications")
+    pdf.bullet("Cisco CyberOps Associate (CBROPS), NTI - Excellent")
+    pdf.bullet("CCNA, Cisco")
+    pdf.bullet("Odoo Technical Bootcamp - February 2026, 8-hour course")
+
     OUT_PUBLIC.parent.mkdir(parents=True, exist_ok=True)
-    pdf.output(str(OUT_PUBLIC))
-    try:
-        pdf.output(str(OUT_DATA))
-        print(f"Wrote {OUT_DATA}")
-    except PermissionError:
-        # data/Karim-CV.pdf may be open in a viewer; public copy is the site source of truth
-        alt = ROOT / "data" / "Karim-CV-ats.pdf"
-        pdf.output(str(alt))
-        print(f"data/Karim-CV.pdf locked; wrote {alt} instead")
-    print(f"Wrote {OUT_PUBLIC} ({OUT_PUBLIC.stat().st_size} bytes)")
+    tmp = ROOT / "data" / "_cv_build.pdf"
+    pdf.output(str(tmp))
+    payload = tmp.read_bytes()
+    written = []
+    for dest in (OUT_ATS, OUT_PUBLIC, OUT_DATA):
+        saved = False
+        candidates = [dest, dest.with_name(f"{dest.stem}-updated{dest.suffix}")]
+        for n in range(2, 6):
+            candidates.append(dest.with_name(f"{dest.stem}-v{n}{dest.suffix}"))
+        for candidate in candidates:
+            try:
+                candidate.write_bytes(payload)
+                note = "" if candidate == dest else " (original file is open)"
+                written.append(f"{candidate}{note}")
+                saved = True
+                break
+            except PermissionError:
+                continue
+        if not saved:
+            written.append(f"FAILED {dest}")
+    tmp.unlink(missing_ok=True)
+    for path in written:
+        print(f"Wrote {path}")
     print(f"pages={pdf.page_no()}")
 
 

@@ -38,6 +38,7 @@ export type Project = {
   highlights: string[];
   technologies: string[];
   image?: string;
+  logo?: string;
   liveUrl?: string;
   githubUrl?: string;
   caseStudy?: ProjectCaseStudy;
@@ -52,6 +53,7 @@ export type Experience = {
   end: string;
   type: "full-time" | "internship" | "co-founder" | "freelance" | "collaboration";
   url?: string;
+  logo?: string;
   summary: string;
   responsibilities: string[];
   technologies?: string[];
@@ -182,7 +184,7 @@ export const portfolioData: PortfolioData = {
     // { label: "LinkedIn", href: "https://linkedin.com/in/YOUR_HANDLE", icon: "linkedin" },
     {
       label: "Ascendra",
-      href: "https://maroweb.net/Ascendra/",
+      href: "https://ascendrasol.com/",
       icon: "website",
     },
     {
@@ -258,6 +260,8 @@ export const portfolioData: PortfolioData = {
         "Package architecture spanning Starter, Growth, Premium, and Launch offerings",
       ],
       technologies: ["Full-stack web", "Responsive UI", "Conversion-focused UX"],
+      image: "/assets/projects/vertex/homepage.png",
+      logo: "/assets/logos/vertex.png",
       liveUrl: "https://www.vertexreviews.com",
       caseStudy: {
         problem:
@@ -301,7 +305,8 @@ export const portfolioData: PortfolioData = {
         "Raspberry Pi",
       ],
       image: "/assets/projects/ascendra/homepage.png",
-      liveUrl: "https://maroweb.net/Ascendra/",
+      logo: "/assets/logos/ascendra.png",
+      liveUrl: "https://ascendrasol.com/",
       caseStudy: {
         problem:
           "Schools, gated communities, and growing businesses needed production-ready software and IoT — not disconnected freelancers or template sites.",
@@ -332,7 +337,7 @@ export const portfolioData: PortfolioData = {
       slug: "video-game-sales-dashboard",
       title: "Video Game Sales Analysis",
       subtitle: "Interactive Power BI market intelligence dashboard",
-      featured: true,
+      featured: false,
       priority: 3,
       category: "Data Analytics",
       role: "Data Analyst",
@@ -365,7 +370,7 @@ export const portfolioData: PortfolioData = {
       slug: "ml-dl-workflows",
       title: "Machine & Deep Learning Workflows",
       subtitle: "End-to-end ML pipelines for insight and decision support",
-      featured: true,
+      featured: false,
       priority: 4,
       category: "AI / ML",
       role: "ML Developer",
@@ -451,7 +456,8 @@ export const portfolioData: PortfolioData = {
       start: "",
       end: "Present",
       type: "co-founder",
-      url: "https://maroweb.net/Ascendra/",
+      url: "https://ascendrasol.com/",
+      logo: "/assets/logos/ascendra.png",
       summary:
         "Co-founded a technology studio building custom software, conversion-focused websites, and offline-first IoT systems for clients in Egypt and the United States.",
       responsibilities: [
@@ -470,6 +476,7 @@ export const portfolioData: PortfolioData = {
       end: "Present",
       type: "full-time",
       url: "https://www.vertexreviews.com",
+      logo: "/assets/logos/vertex.png",
       summary:
         "Full-stack development for Vertex Reviews — a Google Business Profile and reputation management company serving US businesses.",
       responsibilities: [

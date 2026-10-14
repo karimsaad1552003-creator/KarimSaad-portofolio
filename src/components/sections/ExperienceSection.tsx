@@ -1,6 +1,7 @@
 import { portfolioData } from "@/data/portfolio";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { ExternalLink } from "lucide-react";
 
 function formatTenure(start: string, end: string, type: string) {
@@ -40,7 +41,9 @@ export function ExperienceSection() {
               <Reveal delay={index * 60}>
                 <article className="rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-5 md:p-6">
                   <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
+                    <div className="flex items-start gap-4">
+                      {item.logo ? <BrandLogo src={item.logo} alt={`${item.company} logo`} /> : null}
+                      <div>
                       <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)]">
                         {formatTenure(item.start, item.end, item.type)}
                       </p>
@@ -51,6 +54,7 @@ export function ExperienceSection() {
                         {item.company}
                         {item.location ? ` · ${item.location}` : ""}
                       </p>
+                      </div>
                     </div>
                     {item.url ? (
                       <a
