@@ -54,6 +54,7 @@ export type Experience = {
   type: "full-time" | "internship" | "co-founder" | "freelance" | "collaboration";
   url?: string;
   logo?: string;
+  certificateUrl?: string;
   summary: string;
   responsibilities: string[];
   technologies?: string[];
@@ -148,8 +149,8 @@ export const portfolioData: PortfolioData = {
       "Computer Science student and full-stack developer specializing in data analysis, AI, and shipping real products for businesses across Egypt and the US.",
     about: [
       "I am a Computer Science student at the Arab Academy for Science, Technology & Maritime Transport, specializing in data analysis and artificial intelligence while shipping production software as a full-stack developer.",
-      "As Co-founder of Ascendra and Full Stack Developer at Vertex Reviews, I work on real products — from conversion-focused business platforms to custom software systems serving clients internationally.",
-      "I also spent a year as a real estate sales agent at ElitePlus (2025–2026), which strengthened my client-facing communication, negotiation, and relationship-building skills — capabilities I bring into technical collaboration and stakeholder discussions.",
+      "As a Full Stack Developer at Ascendra, and on Vertex Reviews through the collaboration in which Ascendra runs Vertex's back-end services, I work on real products — from conversion-focused business platforms to custom software systems serving clients internationally.",
+      "I also worked as a real estate sales agent at ElitePlus (Aug 2025 – Oct 2026), which strengthened my client-facing communication, negotiation, and relationship-building skills — capabilities I bring into technical collaboration and stakeholder discussions.",
       "I enjoy problems that sit at the intersection of software engineering, data, and product: turning messy requirements into clear systems, interactive analytics, and experiences that hold up in production.",
       "I am currently strengthening my profile toward competitive software engineering, data, and AI roles at major technology companies, startups, and international organizations.",
     ],
@@ -180,8 +181,11 @@ export const portfolioData: PortfolioData = {
       href: "https://github.com/karimsaad1552003-creator",
       icon: "github",
     },
-    // Add LinkedIn when available
-    // { label: "LinkedIn", href: "https://linkedin.com/in/YOUR_HANDLE", icon: "linkedin" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/karimmsaad",
+      icon: "linkedin",
+    },
     {
       label: "Ascendra",
       href: "https://ascendrasol.com/",
@@ -224,7 +228,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "security",
       label: "Networking & Security",
-      skills: ["CCNA", "Cisco CyberOps Associate (CBROPS)"],
+      skills: ["Cisco CyberOps Associate (CBROPS)"],
     },
     {
       id: "professional",
@@ -255,6 +259,7 @@ export const portfolioData: PortfolioData = {
       solution:
         "A polished marketing and conversion website presenting Vertex’s services, packages, and inquiry flows so businesses can understand value and engage quickly.",
       highlights: [
+        "Delivered through the Ascendra and Vertex Reviews collaboration, with Ascendra running Vertex's back-end services",
         "Live production site for a US-based reputation management company",
         "Clear service storytelling: Profile Optimization, Monitoring & Response, Growth Strategy, Profile Maintenance",
         "Package architecture spanning Starter, Growth, Premium, and Launch offerings",
@@ -280,16 +285,16 @@ export const portfolioData: PortfolioData = {
       subtitle: "Technology studio — custom software, websites & IoT",
       featured: true,
       priority: 2,
-      category: "Co-founder · Product",
-      role: "Co-founder",
+      category: "Full Stack · Product",
+      role: "Full Stack Developer",
       summary:
-        "Co-founded Ascendra, a technology studio building custom software, conversion-focused business websites, and offline-first IoT systems for schools, gated communities, and growing businesses across the US and Egypt.",
+        "Ascendra is a technology studio building custom software, conversion-focused business websites, and offline-first IoT systems for schools, gated communities, and growing businesses across the US and Egypt.",
       problem:
         "Growing businesses need one team that can design, build, deploy, and support real systems — websites, platforms, and field hardware — without agency hand-offs.",
       solution:
         "Ascendra ships end-to-end: business websites, full-stack platforms, IoT access control, and digital presence — deployed on managed infrastructure with domain and business email.",
       highlights: [
-        "Authorized Egypt operations partner of Vertex Reviews (New Jersey, USA)",
+        "Runs the back-end services for Vertex Reviews (New Jersey, USA) through a partnership",
         "Flagship systems: Sahel Gate (offline-first QR access) and Full School System",
         "Studio positioning across software, IoT, and digital presence for US & Egypt clients",
       ],
@@ -311,7 +316,7 @@ export const portfolioData: PortfolioData = {
         problem:
           "Schools, gated communities, and growing businesses needed production-ready software and IoT — not disconnected freelancers or template sites.",
         solution:
-          "Built Ascendra as a technology studio delivering websites, custom platforms, offline-first IoT access control, and digital presence with deployment and support included.",
+          "Ascendra is a technology studio delivering websites, custom platforms, offline-first IoT access control, and digital presence with deployment and support included.",
         architecture:
           "Product lines span business websites, Flutter + Next.js + NestJS platforms on PostgreSQL/Redis, and Raspberry Pi / Arduino / .NET / Python IoT gate systems designed to operate offline-first.",
         technologies: [
@@ -330,6 +335,45 @@ export const portfolioData: PortfolioData = {
         ],
         results:
           "Public studio presence live; flagship work includes Sahel Gate System (North Coast, Egypt) and Full School System & Control.",
+      },
+    },
+    {
+      id: "vulngpt",
+      slug: "vulngpt",
+      title: "VulnGPT",
+      subtitle: "AI-assisted web vulnerability analysis engine",
+      featured: true,
+      priority: 3,
+      category: "AI · Security",
+      role: "Developer",
+      summary:
+        "An AI-powered web security testing platform that identifies potential vulnerabilities through HTTP/HTTPS traffic analysis, controlled security testing, and evidence-based reporting.",
+      solution:
+        "Integrated AI-assisted vulnerability analysis, risk prioritization, false-positive verification, and remediation recommendations into one testing workflow.",
+      highlights: [
+        "Nominated for discussion before the College Council for its technical value and potential impact",
+        "HTTP/HTTPS traffic analysis and controlled security testing",
+        "Evidence-based reports with risk prioritization and remediation recommendations",
+      ],
+      technologies: [
+        "AI-assisted analysis",
+        "HTTP/HTTPS traffic analysis",
+        "Security testing",
+        "Vulnerability reporting",
+      ],
+      caseStudy: {
+        solution:
+          "Developed an AI-powered web security testing platform that identifies potential vulnerabilities through HTTP/HTTPS traffic analysis, controlled security testing, and evidence-based reporting.",
+        implementation:
+          "Integrated AI-assisted vulnerability analysis, risk prioritization, false-positive verification, and remediation recommendations.",
+        technologies: [
+          "AI-assisted analysis",
+          "HTTP/HTTPS traffic analysis",
+          "Security testing",
+          "Vulnerability reporting",
+        ],
+        results:
+          "Nominated for discussion before the College Council in recognition of its technical value and potential impact.",
       },
     },
     {
@@ -449,21 +493,21 @@ export const portfolioData: PortfolioData = {
 
   experience: [
     {
-      id: "ascendra-cofounder",
+      id: "ascendra-developer",
       company: "Ascendra",
-      role: "Co-founder",
+      role: "Full Stack Developer",
       location: "Alexandria, Egypt",
-      start: "",
+      start: "Apr 2026",
       end: "Present",
-      type: "co-founder",
+      type: "full-time",
       url: "https://ascendrasol.com/",
       logo: "/assets/logos/ascendra.png",
       summary:
-        "Co-founded a technology studio building custom software, conversion-focused websites, and offline-first IoT systems for clients in Egypt and the United States.",
+        "Full stack developer at Ascendra, a technology studio building custom software, websites, and IoT systems for clients in Egypt and the United States.",
       responsibilities: [
-        "Help shape and ship Ascendra’s product direction across software, websites, and IoT",
+        "Build school systems and gate systems with the Ascendra team",
         "Contribute to full-stack delivery for real business platforms and digital products",
-        "Support the studio’s partnership as authorized Egypt operations partner of Vertex Reviews (New Jersey, USA)",
+        "Work on Vertex Reviews through the partnership in which Ascendra runs Vertex's back-end services",
       ],
       technologies: ["Full-stack web", "Product delivery", "IoT systems"],
     },
@@ -471,14 +515,14 @@ export const portfolioData: PortfolioData = {
       id: "vertex-fullstack",
       company: "Vertex Reviews",
       role: "Full Stack Developer",
-      location: "New Jersey, United States (remote / partner ops)",
-      start: "",
+      location: "New Jersey, United States (remote, through Ascendra)",
+      start: "Apr 2026",
       end: "Present",
-      type: "full-time",
+      type: "collaboration",
       url: "https://www.vertexreviews.com",
       logo: "/assets/logos/vertex.png",
       summary:
-        "Full-stack development for Vertex Reviews — a Google Business Profile and reputation management company serving US businesses.",
+        "Full-stack development for Vertex Reviews, a Google Business Profile and reputation management company serving US businesses. I work with Vertex through its collaboration with Ascendra, which runs Vertex's back-end services.",
       responsibilities: [
         "Build and maintain production web experiences for Vertex Reviews",
         "Support product storytelling for services, packages, and client conversion flows",
@@ -491,11 +535,11 @@ export const portfolioData: PortfolioData = {
       company: "ElitePlus",
       role: "Real Estate Agent (Sales)",
       location: "Egypt",
-      start: "2025",
-      end: "2026",
+      start: "Aug 2025",
+      end: "Oct 2026",
       type: "full-time",
       summary:
-        "One year in real estate sales at ElitePlus — developing strong client communication, negotiation, and relationship-building skills in a client-facing commercial environment.",
+        "Real estate sales at ElitePlus — developing strong client communication, negotiation, and relationship-building skills in a client-facing commercial environment.",
       responsibilities: [
         "Worked as a real estate sales agent, engaging clients through the sales process",
         "Built strong communication and interpersonal skills through daily client interaction",
@@ -507,9 +551,10 @@ export const portfolioData: PortfolioData = {
       company: "Telecom Egypt",
       role: "Machine and Deep Learning Developer",
       location: "Egypt",
-      start: "",
-      end: "",
+      start: "Jan 2025",
+      end: "Feb 2025",
       type: "internship",
+      certificateUrl: "/assets/certificates/telecom-egypt-ai-basic.pdf",
       summary:
         "Internship focused on machine and deep learning development — applying ML workflows to real data problems.",
       responsibilities: [
@@ -523,9 +568,10 @@ export const portfolioData: PortfolioData = {
       company: "AppSoft",
       role: "Requirements Analyst",
       location: "Egypt",
-      start: "",
-      end: "",
+      start: "Jul 2024",
+      end: "Aug 2024",
       type: "internship",
+      certificateUrl: "/assets/certificates/appsoft-training.pdf",
       summary:
         "Internship as Requirements Analyst — translating product needs into structured analysis suitable for engineering delivery.",
       responsibilities: [
@@ -567,12 +613,9 @@ export const portfolioData: PortfolioData = {
       id: "cyberops",
       title: "Cisco CyberOps Associate (CBROPS)",
       issuer: "NTI",
-      note: "Excellent",
-    },
-    {
-      id: "ccna",
-      title: "CCNA",
-      issuer: "Cisco",
+      date: "Feb – Apr 2024",
+      note: "60 hours · Excellent",
+      fileUrl: "/assets/certificates/cisco-cyberops-cbrops.pdf",
     },
     {
       id: "odoo",
@@ -581,6 +624,13 @@ export const portfolioData: PortfolioData = {
       date: "Feb 2026",
       note: "8-hour technical completion",
       fileUrl: "/assets/certificates/odoo-technical-bootcamp.pdf",
+    },
+    {
+      id: "delf-b1",
+      title: "DELF B1 (French)",
+      issuer: "French Ministry of National Education",
+      date: "Jul 2018",
+      fileUrl: "/assets/certificates/delf-b1.pdf",
     },
   ],
 
@@ -595,9 +645,9 @@ export const portfolioData: PortfolioData = {
     {
       id: "learning",
       label: "02",
-      title: "Analytics, ML & networking",
+      title: "Analytics, ML & security",
       description:
-        "Built strength in Python, BI tools, ML libraries, CCNA, and CyberOps.",
+        "Built strength in Python, BI tools, ML libraries, and CyberOps.",
     },
     {
       id: "projects",
@@ -618,14 +668,14 @@ export const portfolioData: PortfolioData = {
       label: "05",
       title: "Client-facing sales experience",
       description:
-        "One year as a real estate sales agent at ElitePlus (2025–2026) — strong communication and negotiation.",
+        "Real estate sales agent at ElitePlus (Aug 2025 – Oct 2026) — strong communication and negotiation.",
     },
     {
       id: "current",
       label: "06",
       title: "Ascendra & Vertex Reviews",
       description:
-        "Co-founder and full-stack developer building software for Egypt and US businesses.",
+        "Full stack developer at Ascendra, also working on Vertex Reviews through the two companies' collaboration.",
     },
     {
       id: "future",
@@ -639,7 +689,7 @@ export const portfolioData: PortfolioData = {
   seo: {
     title: "Karim Mohamed Saad | Full Stack Developer · Data & AI",
     description:
-      "Portfolio of Karim Mohamed Saad — Computer Science student, Co-founder at Ascendra, Full Stack Developer at Vertex Reviews. Data analysis, AI, and production software.",
+      "Portfolio of Karim Mohamed Saad — Computer Science student, Full Stack Developer at Ascendra, working with Vertex Reviews. Data analysis, AI, and production software.",
     keywords: [
       "Karim Mohamed Saad",
       "Karim Saad",

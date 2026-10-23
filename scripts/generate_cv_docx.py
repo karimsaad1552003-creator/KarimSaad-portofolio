@@ -204,19 +204,29 @@ def build():
     contact = doc.add_paragraph()
     contact.alignment = WD_ALIGN_PARAGRAPH.CENTER
     set_paragraph_spacing(contact, before=0, after=4, line=1.0)
-    contact_run = contact.add_run(
-        "+20 114 522 2298 | karimsaad1552003@gmail.com | "
-        "github.com/karimsaad1552003-creator | Portfolio: "
+    contact_run = contact.add_run("+20 114 522 2298 | karimsaad1552003@gmail.com | Egypt")
+    set_run_font(contact_run, size=9)
+    contact_run.add_break()
+    add_hyperlink(
+        contact,
+        "linkedin.com/in/karimmsaad",
+        "https://www.linkedin.com/in/karimmsaad",
+        size=9,
     )
-    set_run_font(contact_run, size=8.5)
+    set_run_font(contact.add_run(" | "), size=9)
+    add_hyperlink(
+        contact,
+        "github.com/karimsaad1552003-creator",
+        "https://github.com/karimsaad1552003-creator",
+        size=9,
+    )
+    set_run_font(contact.add_run(" | Portfolio: "), size=9)
     add_hyperlink(
         contact,
         "karim-saad-portofolio.vercel.app",
         "https://karim-saad-portofolio.vercel.app/",
-        size=8.5,
+        size=9,
     )
-    location_run = contact.add_run(" | Egypt")
-    set_run_font(location_run, size=8.5)
 
     for line in ("Full Stack Developer", "Data Analyst"):
         title = doc.add_paragraph()
@@ -229,19 +239,27 @@ def build():
     body(
         doc,
         "Information Systems graduate seeking full-stack developer and data analyst roles. "
-        "Full-stack work includes co-founding Ascendra, where we build school systems and gate systems, "
+        "Full-stack work includes Ascendra, where we build school systems and gate systems, "
         "and Vertex Reviews, where I delivered 20+ websites plus logos, flyers, and printable menus "
         "for business identity. Data analysis work includes Power BI dashboards, machine learning "
-        "workflows, and a machine learning internship at Telecom Egypt. A year and a half in real estate "
+        "workflows, and a machine learning internship at Telecom Egypt. Real estate "
         "sales at ElitePlus strengthened client communication and negotiation.",
     )
 
     section_title(doc, "Experience")
 
+    left_right(doc, "Full Stack Developer - Ascendra", "Egypt  |  Apr 2026 - Present")
+    bullet(doc, "We build school systems and gate systems.")
+    bullet(doc, "Live product: https://ascendrasol.com/")
+
     left_right(
         doc,
         "Full Stack Developer - Vertex Reviews",
-        "New Jersey, USA (remote)  |  Present",
+        "New Jersey, USA (remote)  |  Apr 2026 - Present",
+    )
+    bullet(
+        doc,
+        "Work with Vertex through its collaboration with Ascendra, which runs Vertex's back-end services.",
     )
     bullet(
         doc,
@@ -249,28 +267,24 @@ def build():
     )
     bullet(doc, "Live product: https://www.vertexreviews.com")
 
-    left_right(doc, "Co-founder - Ascendra", "Egypt  |  Present")
-    bullet(doc, "Co-founded the studio. We build school systems and gate systems.")
-    bullet(doc, "Live product: https://ascendrasol.com/")
-
-    left_right(doc, "Real Estate Agent (Sales) - ElitePlus", "Egypt  |  2025 - 2026")
+    left_right(doc, "Real Estate Agent (Sales) - ElitePlus", "Egypt  |  Aug 2025 - Oct 2026")
     bullet(
         doc,
-        "Spent a year and a half in client-facing sales, building communication, negotiation, "
+        "Worked in client-facing sales, building communication, negotiation, "
         "and relationship management.",
     )
 
     left_right(
         doc,
         "Machine and Deep Learning Developer (Intern) - Telecom Egypt",
-        "Egypt  |  Internship",
+        "Egypt  |  Jan 2025 - Feb 2025",
     )
     bullet(
         doc,
         "Worked on machine and deep learning tasks, including data preparation and model development.",
     )
 
-    left_right(doc, "Requirements Analyst (Intern) - AppSoft", "Egypt  |  Internship")
+    left_right(doc, "Requirements Analyst (Intern) - AppSoft", "Egypt  |  Jul 2024 - Aug 2024")
     bullet(doc, "Analyzed software requirements and wrote specifications for implementation.")
 
     section_title(doc, "Education")
@@ -286,6 +300,18 @@ def build():
     )
 
     section_title(doc, "Academic Projects")
+
+    project_line(doc, "VulnGPT - AI-Assisted Web Vulnerability Analysis Engine")
+    bullet(
+        doc,
+        "AI-powered web security testing platform using HTTP/HTTPS traffic analysis, controlled security "
+        "testing, and evidence-based reporting, with AI-assisted vulnerability analysis, risk prioritization, "
+        "false-positive verification, and remediation recommendations.",
+    )
+    bullet(
+        doc,
+        "Nominated for discussion before the College Council for its technical value and potential impact.",
+    )
 
     project_line(doc, "Video Game Sales Analysis  |  Power BI")
     bullet(
@@ -337,7 +363,6 @@ def build():
 
     section_title(doc, "Certifications")
     bullet(doc, "Cisco CyberOps Associate (CBROPS), NTI - Excellent")
-    bullet(doc, "CCNA, Cisco")
     bullet(doc, "Odoo Technical Bootcamp - February 2026, 8-hour course")
 
     OUT_PUBLIC.parent.mkdir(parents=True, exist_ok=True)

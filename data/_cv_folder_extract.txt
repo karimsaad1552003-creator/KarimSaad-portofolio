@@ -1,0 +1,231 @@
+======================================================================
+CV.pdf
+======================================================================
+pages=1
+--- page 1 ---
+ROAA AHMED FAISL MOHAMED
+SUMMARY
+I am a motivated and ambitious professional with a strong background in management, sales, event
+planning, and entrepreneurship. Throughout my career, I have gained valuable experience leading
+teams, managing branch operations, organizing successful events, and developing sales strategies
+that drive business growth. Currently, I own and manage a local fashion brand, where I oversee
+business operations, marketing, customer relations, and brand development. I am passionate about
+learning, taking on new challenges, and creating meaningful results through strong leadership
+skills.
+WORK EXPERIENCE
+EDUCATION
+Faculty Of Arts  | Department Of Philosophy
+Ain Shams University
+Specialization in Philosophy & Psychology.
+ Sep 2021 - Jun 2025
+• Founder and Owner of a local fashion brand, overseeing all business operations
+• Develop brand strategy, product concepts, and marketing initiatives.
+• Manage supplier relationships, production processes, and inventory planning.
+Founder & Brand Owner | Local Fashion Brand
+Jan 2026 - Present
+ADDITIONAL INFORMATION
+Soft Skills: 
+       Management & Leadership:Team Management,Operations Management,Strategic Planning.
+      Sales & Business:Business Development,CRM,Negotiation,Marketing & Brand Management. 
+Personal Skills: Problem Solving,Multitasking,Communication,Working Under Pressure.
+Technical Skills: Microsoft Office (Word,Excel,PowerPoint).
+Languages: English,Arabic (Native).
+Sales Manager | BeFit 360 Gym
+• Led and managed the sales team to achieve revenue and growth targets.
+• Developed sales strategies and identified new business opportunities.
+• Built and maintained strong client relationships to drive customer retention.
+• Monitored sales performance and prepared reports to support business decisions.
+• Trained and motivated team members of +10 employees to maximize productivity and results.
+Aug 2023 - Oct 2025
+Branch Manager | BeFit 360 Gym
+• Managed operations of three branches: Waterway, Palm Hills, and Swan Lake.
+• Led and developed teams to achieve operational, sales, and customer retention targets.
+• Oversaw membership sales, customer service, staff performance, and daily operations.
+• Managed the employee recruitment, onboarding, performance management, disciplinary
+actions, and termination decisions.
+• Supported workforce planning and day-to-day HR operations.
+Feb 2023 - Dec 2025
+El-Waha Nasr City,Cairo • 01228977005 • roaafaisl2003@gmail.com
+Planned and organized corporate and social events from concept to execution.
+Managed event operations, schedules, and event logistics.
+Oversaw event operations, staffing, and on-site activities.
+Managed budgets, timelines, and client requirements to ensure successful event delivery.
+Resolved operational issues quickly and maintained high service standards during events.
+Event Planner & Operations Coordinator
+Oct 2024 - Jun 2025
+Administration | BeFit 360 Gym
+Assisted in membership administration, customer inquiries, and daily operational tasks.
+Nov 2022 - Feb 2023
+
+======================================================================
+Karim-CV-previous.pdf
+======================================================================
+pages=2
+--- page 1 ---
+                Karim Mohamed Saad
+Phone: 01145222298        Mail: karimsaad1552003@gmail.com         address: Alexandria, Egypt
+•
+SUMMARY
+Hardworking and enthusiastic 3rd-year Computer Science student specializing in Data Analysis and AI. Equipped 
+with a diverse and promising skill-set. Able to effectively self-manage during independent projects, as well as 
+collaborate in a team setting
+EDUCATION
+Bachelor of computer science | 2022-2026
+Arab Academy For Science and Technology and Transport Maritime
+•
+GPA: 2.9
+•
+College Saint-Marc
+INTERNSHIPS
+•
+Machine and Deep Learning Developer, Telecom Egypt
+•
+Requirements Analyst, AppSoft                                                                                                 
+PROJECTS
+Power BI Dashboard – Video Game Sales Analysis 
+•
+Improved understanding of global video game market trends, which could be used for sales forecasting, 
+market targeting, and genre-based game development strategy.
+•
+Developed an interactive Power BI dashboard to analyze a dataset of over 16,000 video game sales records 
+across multiple regions .The project aimed to identify trends, top-performing platforms, and genre-specific 
+insights.
+Machine and Deep Learning Development 
+•
+Worked on end-to-end machine learning workflows, including data collection, cleaning, transformation, 
+and model development.
+•
+Built and evaluated ML/DI models using Python, Pandas, Scikit-lear, and TensorFlow/PyTorch to extract 
+valuable insights and support data-driven decisions. 
+Software Analyst – Ticketing Management System Design 
+•
+Designed a comprehensive Entity-Relationship Diagram (ERD) representing entities such as Tickets, 
+Users, Departments, Priorities, and Status Logs.
+•
+Created a data dictionary detailing each attribute, datatype, and purpose to support future database 
+implementation.
+
+--- page 2 ---
+•
+Produced a technical specification document outlining the system’s data structure and workflow logic.
+Project Management For Pharmacy Management System using MS Project 
+Developed a detailed project plan for a Pharmacy Management System using Microsoft Project. Defined 
+project scope, tasks, timelines, and resource allocations. Created Gantt charts and set project milestones to 
+ensure effective time management and delivery. Applied projoct management principles to simulate real-
+world planning and improve coordination between development phases.
+SKILLS AND LANGUAGES
+•
+Programming languages: Python, Java, C, SQL
+•
+Tools: PowerBI, Excel, Tableau, Microsoft Project
+•
+Libraries: numpy, pandas, matplotlib, seaborn, scikit-learn, tensorflow
+•
+Cisco CyberOps Associate CBROPS, NTI (Excellent)
+•
+CCNA
+•
+Arabic- native                                  English-Fluent                     French- (DELF B1) fluent
+
+======================================================================
+Karim-CV.pdf
+======================================================================
+pages=1
+--- page 1 ---
+Karim Mohamed Saad
+karimsaad1552003@gmail.com   |   01145222298   |   github.com/karimsaad1552003-creator   |   Alexandria, Egypt
+EDUCATION
+Arab Academy for Science, Technology & Maritime Transport
+Egypt  |  2022 - 2026
+B.Sc. in Computer Science - Data Analysis & Artificial Intelligence focus
+College Saint-Marc
+Alexandria, Egypt
+SKILLS
+Programming Languages: Python, Java, C, SQL
+Languages: Arabic: Native    English: Fluent    French: DELF B1, Fluent
+Frameworks & Tools: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, Excel,
+Microsoft Project, Git & GitHub
+Domains: Full-Stack Development, Data Analysis, Machine Learning, Deep Learning, Requirements Analysis, Business
+Intelligence
+Professional Skills: Client communication, Sales & negotiation, Relationship building, Stakeholder collaboration
+WORK EXPERIENCE & CERTIFICATES
+Co-founder - Ascendra
+Alexandria, Egypt  |  Present
+• Co-founded a technology studio building custom software, conversion-focused websites, and offline-first IoT systems for
+clients in Egypt and the United States.
+• Contribute to full-stack product delivery and support Ascendra as authorized Egypt operations partner of Vertex Reviews
+(New Jersey, USA).
+Full Stack Developer - Vertex Reviews
+New Jersey, USA (remote)  |  Present
+• Build and maintain production web experiences for Vertex Reviews, a Google Business Profile and reputation management
+company serving US businesses.
+• Support service storytelling, package presentation, and client conversion flows across the Ascendra x Vertex partnership.
+Real Estate Agent (Sales) - ElitePlus
+Egypt  |  2025 - 2026
+• Spent one year in client-facing real estate sales, building strong communication, negotiation, and relationship-management
+skills.
+Machine and Deep Learning Developer (Intern) - Telecom Egypt
+Egypt  |  Internship
+• Worked on machine and deep learning development tasks, including data preparation and model-oriented problem solving
+in an enterprise environment.
+Requirements Analyst (Intern) - AppSoft
+Egypt  |  Internship
+• Analyzed software requirements, clarified system expectations, and supported structured documentation for
+implementation-ready specifications.
+Certificates: Cisco CyberOps Associate (CBROPS) - NTI (Excellent); CCNA - Cisco; Odoo Technical Bootcamp - Feb 2026
+PROJECTS
+Vertex Reviews Platform  |  Full-stack web  -> Here
+• Production website and service platform for Google Business Profile optimization, review monitoring, growth strategy, and
+service packages for US businesses.
+Ascendra  |  React, Next.js, TypeScript, NestJS, PostgreSQL, Flutter, Python  -> Here
+• Co-founded technology studio shipping custom software, business websites, and offline-first IoT systems (including Sahel
+Gate and Full School System) for US and Egypt clients.
+Video Game Sales Analysis  |  Power BI
+• Interactive Power BI dashboard analyzing 16,000+ video game sales records across regions to identify platform, genre, and
+market trends for forecasting and targeting.
+Machine & Deep Learning Workflows  |  Python, Pandas, Scikit-learn, TensorFlow, PyTorch
+• End-to-end ML workflows covering data collection, cleaning, transformation, model development, and evaluation to
+support data-driven decisions.
+Ticketing Management System Design  |  ERD, Data modeling
+• Designed ERD, data dictionary, and technical specification covering tickets, users, departments, priorities, and status logs.
+Pharmacy Management System Planning  |  Microsoft Project
+• Defined project scope, tasks, timelines, resources, Gantt charts, and milestones for a Pharmacy Management System using
+Microsoft Project.
+
+======================================================================
+Karim-Saad-CV.docx
+======================================================================
+Karim Mohamed Saad
+Data Analysis & AI engineer
+karimsaad1552003@gmail.com   |   01145222298   |   karimsaad1552003-creator   
+EDUCATION
+Arab Academy for Science, Technology & Maritime Transport	Egypt  |  2022 - 2026
+B.Sc. in Computer Science -  Information Systems
+College Saint-Marc	Alexandria, Egypt
+SKILLS
+Programming Languages: Python, Java, C, SQL
+Languages: Arabic: Native    English: Fluent    French: DELF B1, Fluent
+Frameworks & Tools: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, Excel, Microsoft Project, Git & GitHub
+Domains: Full-Stack Development, Data Analysis, Machine Learning, Deep Learning, Requirements Analysis, Business Intelligence
+Professional Skills: Client communication, Sales & negotiation, Relationship building, Stakeholder collaboration
+WORK EXPERIENCE & CERTIFICATES
+Co-founder - Ascendra	Alexandria, Egypt  |  Present
+Co-founded technology studio shipping custom software, business websites, and offline-first IoT systems (including Sahel Gate and Full School System) for US and Egypt clients.
+Full Stack Developer - Vertex Reviews	New Jersey, USA (remote)  |  Present
+Production website and service platform for Google Business Profile optimization, review monitoring, growth strategy, and service packages for US businesses.
+Real Estate Agent (Sales) - ElitePlus	Egypt  |  2025 - 2026
+Spent one year in client-facing real estate sales, building strong communication, negotiation, and relationship-management skills.
+Machine and Deep Learning Developer (Intern) - Telecom Egypt	Egypt  |  Internship
+Worked on machine and deep learning development tasks, including data preparation and model-oriented problem solving in an enterprise environment.
+Requirements Analyst (Intern) - AppSoft	Egypt  |  Internship
+Analyzed software requirements, clarified system expectations, and supported structured documentation for implementation-ready specifications.
+Certificates: Cisco CyberOps Associate (CBROPS) - NTI (Excellent); CCNA - Cisco; Odoo Technical Bootcamp - Feb 2026
+PROJECTS
+Video Game Sales Analysis  |  Power BI    
+Interactive Power BI dashboard analyzing 16,000+ video game sales records across regions to identify platform, genre, and market trends for forecasting and targeting.
+Machine & Deep Learning Workflows  |  Python, Pandas, Scikit-learn, TensorFlow, PyTorch 
+End-to-end ML workflows covering data collection, cleaning, transformation, model development, and evaluation to support data-driven decisions.
+Ticketing Management System Design  |  ERD, Data modeling
+Designed ERD, data dictionary, and technical specification covering tickets, users, departments, priorities, and status logs.
+Pharmacy Management System Planning  |  Microsoft Project
+Defined project scope, tasks, timelines, resources, Gantt charts, and milestones for a Pharmacy Management System using Microsoft Project.

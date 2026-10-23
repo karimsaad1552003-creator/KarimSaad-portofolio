@@ -43,7 +43,7 @@ class ResumeStyleCV(FPDF):
         self.add_font("Calibri", "I", str(italic))
 
     def section_title(self, title: str):
-        self.ln(6)
+        self.ln(4)
         self.set_font("Calibri", "B", 11)
         self.set_text_color(*NAME_COLOR)
         self.cell(0, 14, title.upper(), new_x="LMARGIN", new_y="NEXT")
@@ -51,7 +51,7 @@ class ResumeStyleCV(FPDF):
         self.set_draw_color(0, 0, 0)
         self.set_line_width(0.7)
         self.line(self.l_margin, y, self.w - self.r_margin, y)
-        self.ln(6)
+        self.ln(4)
         self.set_text_color(*TEXT)
 
     def left_right(self, left: str, right: str, left_style: str = "B", size: float = 10):
@@ -111,24 +111,26 @@ def build():
     pdf.set_text_color(*NAME_COLOR)
     pdf.cell(0, 22, "Karim Mohamed Saad", align="C", new_x="LMARGIN", new_y="NEXT")
 
-    # Contact row. 8.5pt keeps phone, email, GitHub, portfolio, and Egypt on one line.
-    pdf.set_font("Calibri", "", 8.5)
-    pdf.set_text_color(*TEXT)
-    before = (
-        "+20 114 522 2298 | karimsaad1552003@gmail.com | "
-        "github.com/karimsaad1552003-creator | Portfolio: "
-    )
-    portfolio_host = "karim-saad-portofolio.vercel.app"
-    after = " | Egypt"
-    before_w = pdf.get_string_width(before)
-    host_w = pdf.get_string_width(portfolio_host)
-    after_w = pdf.get_string_width(after)
-    pdf.set_x((pdf.w - before_w - host_w - after_w) / 2)
-    pdf.cell(before_w, 12, before)
-    pdf.set_text_color(*LINK_COLOR)
-    pdf.cell(host_w, 12, portfolio_host, link=f"https://{portfolio_host}/")
-    pdf.set_text_color(*TEXT)
-    pdf.cell(after_w, 12, after, new_x="LMARGIN", new_y="NEXT")
+    # Contact rows: (text, url) segments, centered; url segments render as links.
+    pdf.set_font("Calibri", "", 9)
+    contact_rows = [
+        [("+20 114 522 2298 | karimsaad1552003@gmail.com | Egypt", None)],
+        [
+            ("linkedin.com/in/karimmsaad", "https://www.linkedin.com/in/karimmsaad"),
+            (" | ", None),
+            ("github.com/karimsaad1552003-creator", "https://github.com/karimsaad1552003-creator"),
+            (" | Portfolio: ", None),
+            ("karim-saad-portofolio.vercel.app", "https://karim-saad-portofolio.vercel.app/"),
+        ],
+    ]
+    for row in contact_rows:
+        widths = [pdf.get_string_width(text) for text, _ in row]
+        pdf.set_x((pdf.w - sum(widths)) / 2)
+        for (text, url), width in zip(row, widths):
+            pdf.set_text_color(*(LINK_COLOR if url else TEXT))
+            pdf.cell(width, 12, text, link=url or "")
+        pdf.set_text_color(*TEXT)
+        pdf.ln(12)
     pdf.set_font("Calibri", "", 11)
     pdf.set_text_color(*TEXT)
     pdf.cell(0, 14, "Full Stack Developer", align="C", new_x="LMARGIN", new_y="NEXT")
@@ -142,19 +144,27 @@ def build():
         0,
         12,
         "Information Systems graduate seeking full-stack developer and data analyst roles. "
-        "Full-stack work includes co-founding Ascendra, where we build school systems and gate systems, "
+        "Full-stack work includes Ascendra, where we build school systems and gate systems, "
         "and Vertex Reviews, where I delivered 20+ websites plus logos, flyers, and printable menus "
         "for business identity. Data analysis work includes Power BI dashboards, machine learning "
-        "workflows, and a machine learning internship at Telecom Egypt. A year and a half in real estate "
+        "workflows, and a machine learning internship at Telecom Egypt. Real estate "
         "sales at ElitePlus strengthened client communication and negotiation.",
     )
 
     # ----- EXPERIENCE -----
     pdf.section_title("Experience")
 
+    pdf.left_right("Full Stack Developer - Ascendra", "Egypt  |  Apr 2026 - Present")
+    pdf.bullet("We build school systems and gate systems.")
+    pdf.bullet("Live product: https://ascendrasol.com/")
+    pdf.ln(2)
+
     pdf.left_right(
         "Full Stack Developer - Vertex Reviews",
-        "New Jersey, USA (remote)  |  Present",
+        "New Jersey, USA (remote)  |  Apr 2026 - Present",
+    )
+    pdf.bullet(
+        "Work with Vertex through its collaboration with Ascendra, which runs Vertex's back-end services."
     )
     pdf.bullet(
         "Delivered 20+ websites and business rebranding through logos, flyers, and printable menus."
@@ -162,28 +172,23 @@ def build():
     pdf.bullet("Live product: https://www.vertexreviews.com")
     pdf.ln(2)
 
-    pdf.left_right("Co-founder - Ascendra", "Egypt  |  Present")
-    pdf.bullet("Co-founded the studio. We build school systems and gate systems.")
-    pdf.bullet("Live product: https://ascendrasol.com/")
-    pdf.ln(2)
-
-    pdf.left_right("Real Estate Agent (Sales) - ElitePlus", "Egypt  |  2025 - 2026")
+    pdf.left_right("Real Estate Agent (Sales) - ElitePlus", "Egypt  |  Aug 2025 - Oct 2026")
     pdf.bullet(
-        "Spent a year and a half in client-facing sales, building communication, negotiation, "
+        "Worked in client-facing sales, building communication, negotiation, "
         "and relationship management."
     )
     pdf.ln(2)
 
     pdf.left_right(
         "Machine and Deep Learning Developer (Intern) - Telecom Egypt",
-        "Egypt  |  Internship",
+        "Egypt  |  Jan 2025 - Feb 2025",
     )
     pdf.bullet(
         "Worked on machine and deep learning tasks, including data preparation and model development."
     )
     pdf.ln(2)
 
-    pdf.left_right("Requirements Analyst (Intern) - AppSoft", "Egypt  |  Internship")
+    pdf.left_right("Requirements Analyst (Intern) - AppSoft", "Egypt  |  Jul 2024 - Aug 2024")
     pdf.bullet(
         "Analyzed software requirements and wrote specifications for implementation."
     )
@@ -203,6 +208,19 @@ def build():
 
     # ----- PROJECTS (academic) -----
     pdf.section_title("Academic Projects")
+
+    pdf.set_font("Calibri", "B", 10)
+    pdf.set_text_color(*TEXT)
+    pdf.multi_cell(0, 12, "VulnGPT - AI-Assisted Web Vulnerability Analysis Engine")
+    pdf.bullet(
+        "AI-powered web security testing platform using HTTP/HTTPS traffic analysis, controlled security "
+        "testing, and evidence-based reporting, with AI-assisted vulnerability analysis, risk prioritization, "
+        "false-positive verification, and remediation recommendations."
+    )
+    pdf.bullet(
+        "Nominated for discussion before the College Council for its technical value and potential impact."
+    )
+    pdf.ln(1)
 
     projects = [
         (
@@ -266,7 +284,6 @@ def build():
     # ----- CERTIFICATIONS -----
     pdf.section_title("Certifications")
     pdf.bullet("Cisco CyberOps Associate (CBROPS), NTI - Excellent")
-    pdf.bullet("CCNA, Cisco")
     pdf.bullet("Odoo Technical Bootcamp - February 2026, 8-hour course")
 
     OUT_PUBLIC.parent.mkdir(parents=True, exist_ok=True)

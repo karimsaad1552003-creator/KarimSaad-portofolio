@@ -2,7 +2,7 @@ import { portfolioData } from "@/data/portfolio";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { BrandLogo } from "@/components/ui/BrandLogo";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, FileText } from "lucide-react";
 
 function formatTenure(start: string, end: string, type: string) {
   const typeLabel = type
@@ -92,6 +92,17 @@ export function ExperienceSection() {
                         </span>
                       ))}
                     </div>
+                  ) : null}
+                  {item.certificateUrl ? (
+                    <a
+                      href={item.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:underline"
+                    >
+                      <FileText className="h-3.5 w-3.5" />
+                      View certificate
+                    </a>
                   ) : null}
                 </article>
               </Reveal>
