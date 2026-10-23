@@ -10,7 +10,7 @@ export function EducationSection() {
           <SectionHeading
             eyebrow="Education"
             title="Academic foundation"
-            description="Formal education that anchors my work in computer science, data, and AI."
+            description="Formal education that anchors my work in information systems, data, and AI."
           />
         </Reveal>
 

@@ -146,9 +146,9 @@ export const portfolioData: PortfolioData = {
     positioning:
       "Building intelligent software, data-driven systems, and production-ready digital products.",
     shortBio:
-      "Computer Science student and full-stack developer specializing in data analysis, AI, and shipping real products for businesses across Egypt and the US.",
+      "Information Systems graduate and full-stack developer specializing in data analysis, AI, and shipping real products for businesses across Egypt and the US.",
     about: [
-      "I am a Computer Science student at the Arab Academy for Science, Technology & Maritime Transport, specializing in data analysis and artificial intelligence while shipping production software as a full-stack developer.",
+      "I am an Information Systems graduate (2026) from the College of Computing and Information Technology at the Arab Academy for Science, Technology & Maritime Transport. I focus on data analysis and artificial intelligence, and I ship production software as a full-stack developer.",
       "As a Full Stack Developer at Ascendra, and on Vertex Reviews through the collaboration in which Ascendra runs Vertex's back-end services, I work on real products — from conversion-focused business platforms to custom software systems serving clients internationally.",
       "I also worked as a real estate sales agent at ElitePlus (Aug 2025 – Oct 2026), which strengthened my client-facing communication, negotiation, and relationship-building skills — capabilities I bring into technical collaboration and stakeholder discussions.",
       "I enjoy problems that sit at the intersection of software engineering, data, and product: turning messy requirements into clear systems, interactive analytics, and experiences that hold up in production.",
@@ -585,16 +585,16 @@ export const portfolioData: PortfolioData = {
     {
       id: "aast",
       institution: "Arab Academy for Science, Technology & Maritime Transport",
-      degree: "Bachelor of Computer Science",
-      field: "Computer Science · Data Analysis & AI focus",
+      degree: "Bachelor of Information Systems",
+      field: "College of Computing and Information Technology",
       start: "2022",
       end: "2026",
       location: "Egypt",
       gpa: "2.9",
       showGpa: false,
       highlights: [
-        "3rd-year Computer Science student specializing in Data Analysis and AI",
-        "Combining academic foundations with production software delivery",
+        "Graduated in 2026",
+        "Academic projects in data analysis, machine learning, systems analysis, and AI-assisted security (VulnGPT)",
       ],
     },
     {
@@ -638,9 +638,9 @@ export const portfolioData: PortfolioData = {
     {
       id: "education",
       label: "01",
-      title: "Computer Science foundation",
+      title: "Information Systems degree",
       description:
-        "AAST Computer Science (2022–2026) with a focus on data analysis and AI.",
+        "Bachelor of Information Systems, AAST (2022–2026), with a focus on data analysis and AI.",
     },
     {
       id: "learning",
@@ -689,7 +689,7 @@ export const portfolioData: PortfolioData = {
   seo: {
     title: "Karim Mohamed Saad | Full Stack Developer · Data & AI",
     description:
-      "Portfolio of Karim Mohamed Saad — Computer Science student, Full Stack Developer at Ascendra, working with Vertex Reviews. Data analysis, AI, and production software.",
+      "Portfolio of Karim Mohamed Saad — Information Systems graduate, Full Stack Developer at Ascendra, working with Vertex Reviews. Data analysis, AI, and production software.",
     keywords: [
       "Karim Mohamed Saad",
       "Karim Saad",
@@ -699,7 +699,8 @@ export const portfolioData: PortfolioData = {
       "Ascendra",
       "Vertex Reviews",
       "Alexandria",
-      "Computer Science",
+      "Information Systems",
+      "Data Analyst",
     ],
     siteUrl: "https://karimsaad.dev",
     ogImage: "/assets/images/karim-saad.jpg",
