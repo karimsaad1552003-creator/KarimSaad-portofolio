@@ -90,6 +90,36 @@ export type JourneyStep = {
   description: string;
 };
 
+export type Stat = {
+  value: string;
+  label: string;
+};
+
+export type ClientSite = {
+  id: string;
+  name: string;
+  kind: string;
+  location: string;
+  url: string;
+  logo?: string;
+  summary: string;
+  features: string[];
+  stack: string[];
+  screens: { src: string; label: string }[];
+  mobile: string;
+};
+
+export type SystemProject = {
+  id: string;
+  name: string;
+  kind: string;
+  location?: string;
+  summary: string;
+  features: string[];
+  tags: string[];
+  icon: "school" | "admin" | "gate";
+};
+
 export type PortfolioData = {
   personal: {
     firstName: string;
@@ -113,8 +143,11 @@ export type PortfolioData = {
     downloadUrl: string;
     fileName: string;
   };
+  stats: Stat[];
   skills: SkillCategory[];
   projects: Project[];
+  clientSites: ClientSite[];
+  systems: SystemProject[];
   experience: Experience[];
   education: Education[];
   certifications: Certification[];
@@ -203,6 +236,12 @@ export const portfolioData: PortfolioData = {
     downloadUrl: "/assets/cv/Karim-CV.pdf",
     fileName: "Karim-Saad-CV.pdf",
   },
+
+  stats: [
+    { value: "20+", label: "Client websites delivered" },
+    { value: "2", label: "Schools running our systems" },
+    { value: "1", label: "Gate access system deployed" },
+  ],
 
   skills: [
     {
@@ -491,6 +530,223 @@ export const portfolioData: PortfolioData = {
     },
   ],
 
+  clientSites: [
+    {
+      id: "mokamo",
+      name: "Mokamo Coffee House",
+      kind: "Yemeni coffee house",
+      location: "Brooklyn, NY",
+      url: "https://mokamoment.com/",
+      summary:
+        "Immersive coffee-house website with a full-screen video hero, Yemeni heritage storytelling in English and Arabic, and a menu filtered by drink category.",
+      features: [
+        "Video hero and brand story sections",
+        "Menu filtered by category, from espresso to traditional Yemeni drinks",
+        "Google Maps, click-to-call, and a contact form",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "Google Maps"],
+      screens: [
+        { src: "/assets/clients/mokamo/home-desktop.webp", label: "Home" },
+        { src: "/assets/clients/mokamo/menu-desktop.webp", label: "Menu" },
+      ],
+      mobile: "/assets/clients/mokamo/home-mobile.webp",
+    },
+    {
+      id: "cluckies",
+      name: "Cluckies Hot Chicken",
+      kind: "Hot chicken franchise",
+      location: "Staten Island, NY",
+      url: "https://cluckieshot.com/",
+      logo: "/assets/clients/cluckies/logo.webp",
+      summary:
+        "Seven-page franchise brand website with a video hero, Toast online ordering, catering and franchise inquiry pages, and Google Tag Manager tracking.",
+      features: [
+        "Toast online ordering buttons on key pages",
+        "Catering and franchise inquiry forms",
+        "Google Tag Manager tracking for orders and form submissions",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "Toast", "Google Tag Manager"],
+      screens: [
+        { src: "/assets/clients/cluckies/home-desktop.webp", label: "Home" },
+        { src: "/assets/clients/cluckies/menu-desktop.webp", label: "Menu" },
+        { src: "/assets/clients/cluckies/franchise-desktop.webp", label: "Franchise" },
+      ],
+      mobile: "/assets/clients/cluckies/home-mobile.webp",
+    },
+    {
+      id: "darna",
+      name: "Darna Mediterranean Seafood",
+      kind: "Seafood restaurant",
+      location: "Malden, MA",
+      url: "https://darnamediterraneanseafood.com/",
+      logo: "/assets/clients/darna/logo.webp",
+      summary:
+        "Restaurant website with ChowNow online ordering, catering and contact forms, a careers page, and a dedicated parking guide for guests.",
+      features: [
+        "ChowNow online ordering",
+        "Contact and catering forms tracked with Google Tag Manager",
+        "Restaurant structured data (JSON-LD) for search engines",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "ChowNow", "Google Tag Manager"],
+      screens: [
+        { src: "/assets/clients/darna/home-desktop.webp", label: "Home" },
+        { src: "/assets/clients/darna/contact-desktop.webp", label: "Contact" },
+      ],
+      mobile: "/assets/clients/darna/home-mobile.webp",
+    },
+    {
+      id: "aljazeera",
+      name: "Al Jazeera Halal Meat Market",
+      kind: "Halal meat market",
+      location: "Staten Island, NY",
+      url: "https://aljazeerahalalmeatmarket.com/",
+      logo: "/assets/clients/aljazeera/logo.webp",
+      summary:
+        "Storefront website for a halal market, with a products page organized by category plus about and visit pages.",
+      features: [
+        "Products page organized by category, from fresh halal meat to pantry staples",
+        "Visit page with Google Maps and click-to-call",
+        "Video hero on the home page",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "Google Maps"],
+      screens: [
+        { src: "/assets/clients/aljazeera/home-desktop.webp", label: "Home" },
+        { src: "/assets/clients/aljazeera/products-desktop.webp", label: "Products" },
+        { src: "/assets/clients/aljazeera/visit-desktop.webp", label: "Visit" },
+      ],
+      mobile: "/assets/clients/aljazeera/home-mobile.webp",
+    },
+    {
+      id: "celestial",
+      name: "Celestial Air HVAC",
+      kind: "HVAC contractor",
+      location: "Northern New Jersey",
+      url: "https://celestialairhvac.com/",
+      logo: "/assets/clients/celestial/logo.webp",
+      summary:
+        "Local-service website with a video hero, click-to-call, and 435 city-and-service landing pages built for local search.",
+      features: [
+        "435 local SEO landing pages, one per city and service",
+        "Structured data and Open Graph tags on every page",
+        "Click-to-call and Google Maps for fast contact",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "Local SEO"],
+      screens: [
+        { src: "/assets/clients/celestial/home-desktop.webp", label: "Home" },
+        { src: "/assets/clients/celestial/about-desktop.webp", label: "About" },
+      ],
+      mobile: "/assets/clients/celestial/home-mobile.webp",
+    },
+    {
+      id: "bayroot",
+      name: "Bay Root Meats",
+      kind: "Halal supermarket & butcher",
+      location: "Bay Ridge, Brooklyn",
+      url: "https://bayrootmeats.com/",
+      logo: "/assets/clients/bayroot/logo.webp",
+      summary:
+        "Photo-led brand website for a halal supermarket, butcher shop, and deli, with an announcement bar, departments, and directions.",
+      features: [
+        "Sections for the butcher shop, supermarket, and deli",
+        "Scrolling announcement bar for store hours and specials",
+        "Click-to-call and Google Maps directions",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "Google Maps"],
+      screens: [{ src: "/assets/clients/bayroot/home-desktop.webp", label: "Home" }],
+      mobile: "/assets/clients/bayroot/home-mobile.webp",
+    },
+    {
+      id: "dukansyko",
+      name: "SYKO & Dukan SYKO",
+      kind: "Restaurant & marketplace",
+      location: "Brooklyn, NY",
+      url: "https://dukansyko.com/",
+      logo: "/assets/clients/dukansyko/logo.webp",
+      summary:
+        "Two brands on one website: SYKO, a Syrian and Korean restaurant, and the Dukan SYKO marketplace, with online payment through Clover.",
+      features: [
+        "Separate restaurant and marketplace pages under one brand",
+        "Clover online payments",
+        "Structured data for search engines",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "Clover"],
+      screens: [
+        { src: "/assets/clients/dukansyko/home-desktop.webp", label: "Home" },
+        { src: "/assets/clients/dukansyko/restaurant-desktop.webp", label: "Restaurant" },
+        { src: "/assets/clients/dukansyko/dukan-desktop.webp", label: "Marketplace" },
+      ],
+      mobile: "/assets/clients/dukansyko/home-mobile.webp",
+    },
+    {
+      id: "albalad",
+      name: "Al Balad Deli",
+      kind: "Halal deli & grill",
+      location: "Utica, NY",
+      url: "https://albaladdeli.com/",
+      logo: "/assets/clients/albalad/logo.webp",
+      summary:
+        "Deli website with a video hero, full menu, Uber Eats and DoorDash ordering, catering, and a visit page.",
+      features: [
+        "Uber Eats and DoorDash ordering",
+        "Call and text buttons for quick orders",
+        "Catering, story, and visit pages with Google Maps",
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "Uber Eats", "DoorDash"],
+      screens: [
+        { src: "/assets/clients/albalad/home-desktop.webp", label: "Home" },
+        { src: "/assets/clients/albalad/menu-desktop.webp", label: "Menu" },
+        { src: "/assets/clients/albalad/catering-desktop.webp", label: "Catering" },
+      ],
+      mobile: "/assets/clients/albalad/home-mobile.webp",
+    },
+  ],
+
+  systems: [
+    {
+      id: "helalia",
+      name: "HELALIA Language School App",
+      kind: "Parent & teacher app",
+      summary:
+        "Bilingual school app in English and Arabic, with separate experiences for parents, teachers, and the school office under one login.",
+      features: [
+        "Parents: homework, attendance, results, weekly plan, and school alerts",
+        "Teachers: classes, attendance, homework publishing, and messages",
+        "Office control panel for students, classes, staff, and events",
+      ],
+      tags: ["English / Arabic", "Parents", "Teachers", "School office"],
+      icon: "school",
+    },
+    {
+      id: "school-management",
+      name: "School Management System",
+      kind: "Administration platform",
+      summary:
+        "Administration hub for schools that brings admissions, academics, fees, and staff into one platform.",
+      features: [
+        "Admissions",
+        "Academics",
+        "Fees and staff administration",
+      ],
+      tags: ["Admin platform", "Schools", "Web"],
+      icon: "admin",
+    },
+    {
+      id: "sahel-gate",
+      name: "Sahel Gate System",
+      kind: "QR access control",
+      location: "North Coast, Egypt",
+      summary:
+        "Offline-first QR access control for a gated community, built to keep the gate working even when the internet is down.",
+      features: [
+        "QR code scanning at the gate",
+        "Keeps working when the internet connection is down",
+        "Gate hardware set up and connected on site",
+      ],
+      tags: ["IoT", "Offline-first", "QR access"],
+      icon: "gate",
+    },
+  ],
+
   experience: [
     {
       id: "ascendra-developer",
@@ -505,11 +761,12 @@ export const portfolioData: PortfolioData = {
       summary:
         "Full stack developer at Ascendra, a technology studio building custom software, websites, and IoT systems for clients in Egypt and the United States.",
       responsibilities: [
-        "Build school systems and gate systems with the Ascendra team",
-        "Contribute to full-stack delivery for real business platforms and digital products",
+        "Built the HELALIA school app, a school management system, and the Sahel Gate QR access system, now used by 2 schools and 1 gated community",
+        "Worked across front end, back end, UI design, deployment, and on-site gate hardware",
+        "Gathered requirements and handled communication with school and community clients",
         "Work on Vertex Reviews through the partnership in which Ascendra runs Vertex's back-end services",
       ],
-      technologies: ["Full-stack web", "Product delivery", "IoT systems"],
+      technologies: ["Full-stack web", "IoT systems", "QR access control", "English / Arabic UI"],
     },
     {
       id: "vertex-fullstack",
@@ -524,11 +781,12 @@ export const portfolioData: PortfolioData = {
       summary:
         "Full-stack development for Vertex Reviews, a Google Business Profile and reputation management company serving US businesses. I work with Vertex through its collaboration with Ascendra, which runs Vertex's back-end services.",
       responsibilities: [
-        "Build and maintain production web experiences for Vertex Reviews",
-        "Support product storytelling for services, packages, and client conversion flows",
-        "Collaborate across Ascendra × Vertex partnership delivery",
+        "Delivered 20+ client websites for US restaurants, markets, and local services, including Cluckies Hot Chicken, Darna Mediterranean Seafood, and Al Balad Deli",
+        "Integrated online ordering and payments (Toast, ChowNow, Clover, Uber Eats, DoorDash), Google Maps, and Google Tag Manager tracking",
+        "Handled design, SEO, domains, and deployment, plus brand work such as logos, flyers, and printable menus",
+        "Build and maintain the Vertex Reviews website",
       ],
-      technologies: ["Full-stack web development"],
+      technologies: ["HTML", "CSS", "JavaScript", "SEO", "Online ordering integrations"],
     },
     {
       id: "eliteplus",

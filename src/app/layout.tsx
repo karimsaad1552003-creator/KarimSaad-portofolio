@@ -1,26 +1,29 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Instrument_Serif, Outfit, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { portfolioData } from "@/data/portfolio";
 import "./globals.css";
 
-const syne = Syne({
+const instrument = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-syne",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-outfit",
   display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
+const plex = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  weight: ["400", "500"],
+  variable: "--font-plex",
   display: "swap",
 });
 
@@ -85,7 +88,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${syne.variable} ${dmSans.variable} ${jetbrains.variable} antialiased`}>
+      <body className={`${instrument.variable} ${outfit.variable} ${plex.variable} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

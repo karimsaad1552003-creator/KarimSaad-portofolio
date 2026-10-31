@@ -12,7 +12,7 @@ export function BrandLogo({
   const large = size === "lg";
   return (
     <span
-      className={`inline-flex shrink-0 items-center rounded-xl bg-[#071018] ring-1 ring-white/10 ${
+      className={`inline-flex shrink-0 items-center rounded-xl bg-[#1c1916] ring-1 ring-white/10 ${
         large ? "h-20 px-5" : "h-12 px-3"
       }`}
     >

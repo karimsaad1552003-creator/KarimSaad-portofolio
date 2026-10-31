@@ -3,9 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-display: var(--font-instrument), ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex), ui-monospace, monospace;
 
   --color-bg: var(--bg);
   --color-bg-elevated: var(--bg-elevated);
@@ -22,37 +22,49 @@
 }
 
 :root {
-  --bg: #f4f6f8;
-  --bg-elevated: #ffffff;
-  --surface: #eef2f6;
-  --border: #d7dee7;
-  --border-strong: #b8c3d1;
-  --text: #0f1720;
-  --text-muted: #4a5563;
-  --text-subtle: #6b7785;
-  --accent: #0e7490;
-  --accent-soft: #cff0f7;
-  --accent-fg: #ffffff;
-  --ring: #0891b2;
-  --grid-line: rgba(15, 23, 32, 0.06);
-  --glow: rgba(14, 116, 144, 0.18);
+  color-scheme: light;
+  --bg: #f3efe8;
+  --bg-elevated: #faf8f5;
+  --surface: #e9e3d9;
+  --border: #ddd4c7;
+  --border-strong: #c9beae;
+  --text: #1c1916;
+  --text-muted: #5c564e;
+  --text-subtle: #7d756b;
+  --accent: #9a3f12;
+  --accent-soft: #f4e6db;
+  --accent-fg: #fffaf6;
+  --accent-inverse: #e7a27a;
+  --ring: #9a3f12;
+  --grid-line: rgba(28, 25, 22, 0.045);
+  --glow: rgba(154, 63, 18, 0.14);
+  --inverse: #1c1916;
+  --inverse-fg: #f6f1ea;
+  --inverse-muted: #c9c0b4;
+  --shadow: 0 24px 60px -32px rgba(28, 25, 22, 0.45);
 }
 
 .dark {
-  --bg: #070b10;
-  --bg-elevated: #0d131b;
-  --surface: #121a24;
-  --border: #1e2a38;
-  --border-strong: #2d3d50;
-  --text: #e8eef5;
-  --text-muted: #9aabbd;
-  --text-subtle: #6f8196;
-  --accent: #22d3ee;
-  --accent-soft: rgba(34, 211, 238, 0.12);
-  --accent-fg: #041016;
-  --ring: #67e8f9;
-  --grid-line: rgba(232, 238, 245, 0.05);
-  --glow: rgba(34, 211, 238, 0.14);
+  color-scheme: dark;
+  --bg: #0c0b0a;
+  --bg-elevated: #151311;
+  --surface: #221f1b;
+  --border: #332e29;
+  --border-strong: #4a433c;
+  --text: #f4efe8;
+  --text-muted: #b7aea3;
+  --text-subtle: #8d847a;
+  --accent: #e7a27a;
+  --accent-soft: rgba(231, 162, 122, 0.12);
+  --accent-fg: #1c120c;
+  --accent-inverse: #9a3f12;
+  --ring: #e7a27a;
+  --grid-line: rgba(244, 239, 232, 0.045);
+  --glow: rgba(231, 162, 122, 0.16);
+  --inverse: #f4efe8;
+  --inverse-fg: #1c1916;
+  --inverse-muted: #5c564e;
+  --shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.55);
 }
 
 @layer base {
@@ -62,6 +74,10 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -79,7 +95,9 @@
   }
 
   body {
-    background: var(--bg);
+    background:
+      radial-gradient(ellipse 80% 42% at 80% -12%, var(--glow), transparent 55%),
+      var(--bg);
     color: var(--text);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
@@ -87,7 +105,7 @@
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--accent) 35%, transparent);
+    background: color-mix(in oklab, var(--accent) 32%, transparent);
     color: var(--text);
   }
 
@@ -95,12 +113,17 @@
     outline: 2px solid var(--ring);
     outline-offset: 3px;
   }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-subtle);
+  }
 }
 
 @utility container-page {
   margin-inline: auto;
   width: 100%;
-  max-width: 72rem;
+  max-width: 76rem;
   padding-inline: 1.25rem;
 }
 
@@ -111,12 +134,12 @@
 }
 
 @utility section-pad {
-  padding-block: 5rem;
+  padding-block: 5.25rem;
 }
 
 @media (min-width: 768px) {
   .section-pad {
-    padding-block: 7rem;
+    padding-block: 7.25rem;
   }
 }
 
@@ -124,11 +147,29 @@
   text-wrap: balance;
 }
 
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 70%, transparent);
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--text-muted);
+}
+
 @utility grid-bg {
   background-image:
     radial-gradient(ellipse 80% 50% at 50% -20%, var(--glow), transparent 55%),
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 100% 100%, 48px 48px, 48px 48px;
+  background-size: 100% 100%, 56px 56px, 56px 56px;
   background-position: center, center, center;
 }

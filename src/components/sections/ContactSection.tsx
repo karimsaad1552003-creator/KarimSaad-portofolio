@@ -1,15 +1,30 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Mail, Phone, MapPin, Send, Download, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Download, CheckCircle2, Linkedin } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button, LinkButton } from "@/components/ui/Button";
 
+const field =
+  "w-full rounded-xl border border-[var(--border-strong)] bg-[var(--surface)] px-3.5 text-sm text-[var(--text)] outline-none transition focus:border-[var(--accent)]";
+
+function formatPhone(phone: string) {
+  const digits = phone.replace(/\D/g, "");
+  if (digits.length === 11) {
+    return `${digits.slice(0, 3)} ${digits.slice(3, 7)} ${digits.slice(7)}`;
+  }
+  return phone;
+}
+
 export function ContactSection() {
-  const { personal, cv } = portfolioData;
+  const { personal, cv, socials } = portfolioData;
   const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const linkedin = socials.find((social) => social.icon === "linkedin");
+  const tel = personal.phone.startsWith("0")
+    ? `+20${personal.phone.slice(1)}`
+    : personal.phone;
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -33,67 +48,83 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-pad">
+    <section id="contact" className="section-pad border-t border-[var(--border)] bg-[var(--bg-elevated)]">
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="Hire me"
-            title="Let’s build something meaningful."
-            description="Recruiters and hiring managers — reach out directly. I respond professionally and quickly."
+            eyebrow="07  /  Contact"
+            title="If the work fits, let's talk."
+            description="Hiring managers and recruiters — write directly about software, data, or AI roles."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="mt-12 grid overflow-hidden rounded-[2rem] border border-[var(--border)] lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
-            <div className="space-y-4 rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-elevated)] p-6 md:p-8">
-              <a
-                href={`mailto:${personal.email}`}
-                className="flex items-start gap-3 rounded-xl p-3 transition hover:bg-[var(--surface)]"
-              >
-                <Mail className="mt-0.5 h-5 w-5 text-[var(--accent)]" />
-                <div>
-                  <p className="text-sm font-medium text-[var(--text)]">Email</p>
-                  <p className="text-sm text-[var(--text-muted)]">{personal.email}</p>
-                </div>
-              </a>
-              <a
-                href={`tel:${personal.phone}`}
-                className="flex items-start gap-3 rounded-xl p-3 transition hover:bg-[var(--surface)]"
-              >
-                <Phone className="mt-0.5 h-5 w-5 text-[var(--accent)]" />
-                <div>
-                  <p className="text-sm font-medium text-[var(--text)]">Phone</p>
-                  <p className="text-sm text-[var(--text-muted)]">{personal.phone}</p>
-                </div>
-              </a>
-              <div className="flex items-start gap-3 rounded-xl p-3">
-                <MapPin className="mt-0.5 h-5 w-5 text-[var(--accent)]" />
-                <div>
-                  <p className="text-sm font-medium text-[var(--text)]">Location</p>
-                  <p className="text-sm text-[var(--text-muted)]">{personal.location}</p>
+            <div className="flex h-full flex-col bg-[var(--inverse)] p-7 text-[var(--inverse-fg)] md:p-10">
+              <p className="display text-4xl leading-tight md:text-5xl text-balance">
+                Tell me about the role.
+              </p>
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--inverse-muted)]">
+                {personal.currentlyToward}
+              </p>
+
+              <div className="mt-8 space-y-1">
+                <a
+                  href={`mailto:${personal.email}`}
+                  className="flex items-start gap-3 rounded-xl px-2 py-3 transition hover:bg-[color-mix(in_oklab,var(--inverse-fg)_6%,transparent)]"
+                >
+                  <Mail className="mt-0.5 h-4 w-4 text-[var(--accent-inverse)]" />
+                  <span>
+                    <span className="block text-xs text-[var(--inverse-muted)]">Email</span>
+                    <span className="mt-0.5 block break-all text-sm">{personal.email}</span>
+                  </span>
+                </a>
+                <a
+                  href={`tel:${tel}`}
+                  className="flex items-start gap-3 rounded-xl px-2 py-3 transition hover:bg-[color-mix(in_oklab,var(--inverse-fg)_6%,transparent)]"
+                >
+                  <Phone className="mt-0.5 h-4 w-4 text-[var(--accent-inverse)]" />
+                  <span>
+                    <span className="block text-xs text-[var(--inverse-muted)]">Phone</span>
+                    <span className="mt-0.5 block text-sm">{formatPhone(personal.phone)}</span>
+                  </span>
+                </a>
+                <div className="flex items-start gap-3 rounded-xl px-2 py-3">
+                  <MapPin className="mt-0.5 h-4 w-4 text-[var(--accent-inverse)]" />
+                  <span>
+                    <span className="block text-xs text-[var(--inverse-muted)]">Location</span>
+                    <span className="mt-0.5 block text-sm">{personal.location}</span>
+                  </span>
                 </div>
               </div>
-              <LinkButton href={cv.downloadUrl} download={cv.fileName} variant="secondary" className="w-full">
-                <Download className="h-4 w-4" />
-                Download CV
-              </LinkButton>
+
+              <div className="mt-auto flex flex-wrap gap-3 pt-8">
+                {linkedin ? (
+                  <LinkButton
+                    href={linkedin.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="secondary"
+                    size="sm"
+                  >
+                    <Linkedin className="h-3.5 w-3.5" />
+                    LinkedIn
+                  </LinkButton>
+                ) : null}
+                <LinkButton href={cv.downloadUrl} download={cv.fileName} variant="secondary" size="sm">
+                  <Download className="h-3.5 w-3.5" />
+                  Download CV
+                </LinkButton>
+              </div>
             </div>
           </Reveal>
 
           <Reveal delay={80}>
-            <form
-              onSubmit={onSubmit}
-              className="rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-elevated)] p-6 md:p-8"
-            >
+            <form onSubmit={onSubmit} className="bg-[var(--bg-elevated)] p-7 md:p-10">
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="block text-sm">
                   <span className="mb-2 block text-[var(--text-muted)]">Name</span>
-                  <input
-                    required
-                    name="name"
-                    autoComplete="name"
-                    className="h-11 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-3 text-[var(--text)] outline-none transition focus:border-[var(--accent)]"
-                  />
+                  <input required name="name" autoComplete="name" className={`${field} h-11`} />
                 </label>
                 <label className="block text-sm">
                   <span className="mb-2 block text-[var(--text-muted)]">Email</span>
@@ -102,17 +133,13 @@ export function ContactSection() {
                     type="email"
                     name="email"
                     autoComplete="email"
-                    className="h-11 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-3 text-[var(--text)] outline-none transition focus:border-[var(--accent)]"
+                    className={`${field} h-11`}
                   />
                 </label>
               </div>
               <label className="mt-4 block text-sm">
-                <span className="mb-2 block text-[var(--text-muted)]">Company / Organization</span>
-                <input
-                  name="company"
-                  autoComplete="organization"
-                  className="h-11 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-3 text-[var(--text)] outline-none transition focus:border-[var(--accent)]"
-                />
+                <span className="mb-2 block text-[var(--text-muted)]">Company</span>
+                <input name="company" autoComplete="organization" className={`${field} h-11`} />
               </label>
               <label className="mt-4 block text-sm">
                 <span className="mb-2 block text-[var(--text-muted)]">Message</span>
@@ -120,8 +147,8 @@ export function ContactSection() {
                   required
                   name="message"
                   rows={5}
-                  className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-3 py-3 text-[var(--text)] outline-none transition focus:border-[var(--accent)]"
-                  placeholder="Role, team, timeline, or anything relevant…"
+                  className={`${field} py-3`}
+                  placeholder="Role, team, or what you're hiring for"
                 />
               </label>
               <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -136,7 +163,7 @@ export function ContactSection() {
                   </p>
                 ) : (
                   <p className="text-xs text-[var(--text-subtle)]">
-                    Opens your email client with a pre-filled message to {personal.email}
+                    Opens an email to {personal.email}
                   </p>
                 )}
               </div>

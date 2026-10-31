@@ -1,0 +1,126 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+# Render with: python -m rendercv render data/Karim_Mohamed_Saad_CV.yaml
+cv:
+  name: Karim Mohamed Saad
+  location: Alexandria, Egypt
+  email: karimsaad1552003@gmail.com
+  phone: '+201145222298'
+  website: https://karim-saad-portofolio.vercel.app/
+  social_networks:
+    - network: LinkedIn
+      username: karimmsaad
+    - network: GitHub
+      username: karimsaad1552003-creator
+  sections:
+    Professional Summary:
+      - Information Systems graduate from the Arab Academy for Science, Technology & Maritime Transport with hands-on
+        experience in full-stack development and data analysis. At Ascendra, I build school and gate systems, and through
+        Ascendra's collaboration with Vertex Reviews I delivered 20+ websites for US businesses. I also build Power BI
+        dashboards and machine learning workflows, and completed a machine and deep learning internship at Telecom Egypt.
+    Education:
+      - institution: Arab Academy for Science, Technology & Maritime Transport
+        area: College of Computing and Information Technology
+        degree: BSc
+        date: 2022 – 2026
+        location: Alexandria, Egypt
+        summary: Information Systems
+      - institution: Collège Saint-Marc
+        area: Secondary Education
+        location: Alexandria, Egypt
+    Experience:
+      - company: Ascendra
+        position: Full Stack Developer
+        start_date: 2026-04
+        end_date: present
+        location: Alexandria, Egypt
+        summary: Build school systems and gate systems at a technology studio delivering custom software, websites, and IoT
+          systems for clients in Egypt and the United States.
+        highlights:
+          - 'Live site: [ascendrasol.com](https://ascendrasol.com/)'
+      - company: Vertex Reviews
+        position: Full Stack Developer
+        start_date: 2026-04
+        end_date: present
+        location: New Jersey, USA (Remote)
+        summary: Work with Vertex Reviews through its collaboration with Ascendra, which runs Vertex's back-end services.
+          Delivered 20+ websites and business rebranding through logos, flyers, and printable menus.
+        highlights:
+          - 'Live site: [vertexreviews.com](https://www.vertexreviews.com)'
+      - company: ElitePlus
+        position: Real Estate Agent (Sales)
+        start_date: 2025-08
+        end_date: 2026-10
+        location: Egypt
+        summary: Worked in client-facing real estate sales, building communication, negotiation, and relationship
+          management skills.
+      - company: Telecom Egypt
+        position: Machine and Deep Learning Intern
+        start_date: 2025-01
+        end_date: 2025-02
+        location: Egypt
+        summary: Worked on machine and deep learning tasks, including data preparation and model development.
+      - company: AppSoft
+        position: Requirements Analyst Intern
+        start_date: 2024-07
+        end_date: 2024-08
+        location: Egypt
+        summary: Analyzed software requirements and wrote specifications for implementation.
+    Skills:
+      - label: Programming Languages
+        details: Python, Java, C, SQL, JavaScript
+      - label: Full-Stack Development
+        details: HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS, Node.js, REST APIs, PostgreSQL
+      - label: Data & AI
+        details: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, PyTorch, Power BI, Tableau, Excel
+      - label: Analysis & Tools
+        details: Requirements analysis, ERD, technical specifications, Microsoft Project, Git, GitHub
+      - label: Soft Skills
+        details: Client communication, sales and negotiation, relationship building, stakeholder collaboration
+    Languages:
+      - label: Arabic
+        details: Native
+      - label: English
+        details: Fluent
+      - label: French
+        details: Fluent (DELF B1)
+    Certifications:
+      - bullet: Cisco CyberOps Associate (CBROPS) – NTI, Excellent (2024)
+      - bullet: Odoo Technical Bootcamp – 8-hour technical course (2026)
+      - bullet: DELF B1 (French) – French Ministry of National Education (2018)
+    Projects:
+      - name: VulnGPT – AI-Assisted Web Vulnerability Analysis Engine
+        summary: AI-powered web security testing platform using HTTP/HTTPS traffic analysis, controlled security testing, and
+          evidence-based reporting.
+        highlights:
+          - AI-assisted vulnerability analysis, risk prioritization, false-positive verification, and remediation
+            recommendations.
+          - Nominated for discussion before the College Council for its technical value and potential impact.
+      - name: Video Game Sales Analysis (Power BI)
+        summary: Interactive dashboard on 16,000+ sales records across regions, platforms, and genres.
+      - name: Machine & Deep Learning Workflows
+        summary: 'End-to-end workflows: collection, cleaning, transformation, model development, and evaluation.'
+        highlights:
+          - Python, Pandas, Scikit-learn, TensorFlow, PyTorch.
+      - name: Ticketing Management System Design
+        summary: ERD, data dictionary, and technical specification for tickets, users, departments, priorities, and status
+          logs.
+      - name: Pharmacy Management System Planning (Microsoft Project)
+        summary: Scope, tasks, timelines, resources, Gantt chart, and milestones.
+design:
+  theme: classic
+  sections:
+    space_between_regular_entries: 0.5em
+    show_time_spans_in: []
+  entries:
+    short_second_row: false
+  templates:
+    footer: '*NAME - Page PAGE_NUMBER of TOTAL_PAGES*'
+locale:
+  language: english
+settings:
+  current_date: today
+  render_command:
+    output_folder: rendercv_output
+    dont_generate_markdown: true
+    dont_generate_html: true
+  pdf_title: NAME - CV

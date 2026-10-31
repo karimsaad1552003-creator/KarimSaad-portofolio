@@ -1,53 +1,67 @@
 import { portfolioData } from "@/data/portfolio";
-import { Github, Linkedin, Mail, Globe } from "lucide-react";
-
-const iconMap = {
-  linkedin: Linkedin,
-  github: Github,
-  email: Mail,
-  phone: Mail,
-  website: Globe,
-};
+import { footerNav } from "@/lib/nav";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 
 export function Footer() {
-  const { personal, socials } = portfolioData;
+  const { personal, cv } = portfolioData;
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--bg-elevated)]">
-      <div className="container-page flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
-        <div>
-          <p className="font-[family-name:var(--font-display)] text-lg font-semibold">
-            {personal.fullName}
-          </p>
-          <p className="mt-1 text-sm text-[var(--text-muted)]">
-            {personal.title} · {personal.location}
-          </p>
+      <div className="container-page py-14">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_0.8fr_1fr] md:gap-12">
+          <div>
+            <p className="display text-3xl text-[var(--text)]">{personal.fullName}</p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--text-muted)]">
+              {personal.positioning}
+            </p>
+            <p className="mt-4 text-sm text-[var(--text-subtle)]">
+              {personal.title}
+              <span aria-hidden> · </span>
+              {personal.location}
+            </p>
+          </div>
+
+          <nav aria-label="Footer">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)]">
+              On this page
+            </p>
+            <ul className="mt-4 space-y-2">
+              {footerNav.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    className="text-sm text-[var(--text-muted)] transition hover:text-[var(--text)]"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href={cv.downloadUrl}
+                  download={cv.fileName}
+                  className="text-sm text-[var(--text-muted)] transition hover:text-[var(--text)]"
+                >
+                  Download CV
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)]">
+              Connect
+            </p>
+            <SocialLinks className="mt-4 flex-col items-start gap-3" />
+          </div>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
-          {socials.map((social) => {
-            const Icon = iconMap[social.icon] ?? Globe;
-            return (
-              <a
-                key={social.label}
-                href={social.href}
-                target={social.href.startsWith("http") ? "_blank" : undefined}
-                rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-3 py-2 text-sm text-[var(--text-muted)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              >
-                <Icon className="h-3.5 w-3.5" />
-                {social.label}
-              </a>
-            );
-          })}
-        </div>
-      </div>
-      <div className="border-t border-[var(--border)]">
-        <div className="container-page flex flex-col gap-2 py-5 text-xs text-[var(--text-subtle)] sm:flex-row sm:justify-between">
+
+        <div className="mt-12 flex flex-col gap-2 border-t border-[var(--border)] pt-6 text-xs text-[var(--text-subtle)] sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {personal.fullName}. All rights reserved.
           </p>
-          <p>Built with Next.js · TypeScript · Tailwind CSS</p>
+          <p>Full stack · Data · AI</p>
         </div>
       </div>
     </footer>

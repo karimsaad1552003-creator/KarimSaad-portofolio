@@ -4,83 +4,90 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function AboutSection() {
-  const { personal } = portfolioData;
+  const { personal, education } = portfolioData;
+  const degree = education[0];
+  const [lead, ...rest] = personal.about;
 
   return (
-    <section id="about" className="section-pad">
+    <section id="about" className="section-pad border-y border-[var(--border)] bg-[var(--bg-elevated)]">
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="Professional profile"
-            title="Who I am — and what I build toward"
-            description="A recruiter-friendly snapshot of my academic foundation, technical focus, and professional direction."
+            eyebrow="05  /  Profile"
+            title="The short version"
+            description="Information Systems graduate shipping full-stack products, with a background in data, AI, and client work."
           />
         </Reveal>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <Reveal delay={80}>
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--bg-elevated)]">
-              <Image
-                src={personal.photo}
-                alt={`${personal.fullName} at the College of Computing`}
-                width={720}
-                height={900}
-                className="aspect-[4/5] w-full object-cover object-top"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-5 text-white">
-                <p className="font-[family-name:var(--font-display)] text-lg font-semibold">
-                  {personal.fullName}
+        <div className="mt-12 grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
+          <Reveal>
+            <div className="lg:sticky lg:top-28">
+              <div className="overflow-hidden rounded-[1.75rem] border border-[var(--border)] bg-[var(--surface)]">
+                <Image
+                  src={personal.photo}
+                  alt={`${personal.fullName} at the College of Computing and Information Technology`}
+                  width={720}
+                  height={900}
+                  className="aspect-[4/5] w-full object-cover object-[center_22%]"
+                />
+              </div>
+              <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-4">
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--accent)]">
+                  {personal.location}
                 </p>
-                <p className="text-sm text-white/80">{personal.title}</p>
+                <p className="mt-2 text-sm text-[var(--text)]">
+                  {degree?.degree}
+                  {degree?.end ? ` · ${degree.end}` : ""}
+                </p>
+                <p className="mt-1 text-sm text-[var(--text-muted)]">{degree?.institution}</p>
               </div>
             </div>
           </Reveal>
 
-          <div className="space-y-8">
-            {personal.about.map((paragraph, index) => (
-              <Reveal key={paragraph.slice(0, 24)} delay={100 + index * 60}>
-                <p className="text-base leading-relaxed text-[var(--text-muted)] md:text-lg">
-                  {paragraph}
-                </p>
+          <div>
+            {lead ? (
+              <Reveal>
+                <p className="text-lg leading-relaxed text-[var(--text)] md:text-xl">{lead}</p>
               </Reveal>
-            ))}
+            ) : null}
 
-            <Reveal delay={320}>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-5">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)]">
-                    Focus areas
-                  </p>
-                  <ul className="mt-3 space-y-2">
-                    {personal.focusAreas.map((item) => (
-                      <li key={item} className="text-sm text-[var(--text)]">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-5">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)]">
-                    Languages
-                  </p>
-                  <ul className="mt-3 space-y-2">
-                    {personal.languages.map((lang) => (
-                      <li
-                        key={lang.name}
-                        className="flex items-center justify-between gap-3 text-sm text-[var(--text)]"
-                      >
-                        <span>{lang.name}</span>
-                        <span className="text-[var(--text-subtle)]">{lang.level}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="mt-6 space-y-4">
+              {rest.map((paragraph, index) => (
+                <Reveal key={paragraph.slice(0, 32)} delay={60 + index * 40}>
+                  <p className="text-base leading-relaxed text-[var(--text-muted)]">{paragraph}</p>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={180}>
+              <div className="mt-8">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)]">
+                  Focus
+                </p>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {personal.focusAreas.map((item) => (
+                    <li key={item} className="chip">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
 
-            <Reveal delay={380}>
-              <p className="rounded-2xl border border-dashed border-[var(--border-strong)] bg-[var(--surface)] px-5 py-4 text-sm leading-relaxed text-[var(--text-muted)]">
-                <span className="font-medium text-[var(--text)]">Currently working toward: </span>
+            <Reveal delay={220}>
+              <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-3">
+                {personal.languages.map((lang) => (
+                  <div key={lang.name} className="bg-[var(--bg)] px-4 py-4">
+                    <dt className="text-sm text-[var(--text)]">{lang.name}</dt>
+                    <dd className="mt-1 text-xs text-[var(--text-subtle)]">{lang.level}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+
+            <Reveal delay={260}>
+              <p className="mt-6 text-sm leading-relaxed text-[var(--text-muted)]">
+                <span className="font-medium text-[var(--text)]">Currently working toward </span>
                 {personal.currentlyToward}
               </p>
             </Reveal>
