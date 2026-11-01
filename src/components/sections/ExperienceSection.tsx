@@ -22,7 +22,7 @@ export function ExperienceSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="03  /  Career"
+            eyebrow="04  /  Career"
             title="Where I've worked, and what I shipped"
             description="From internships in machine learning and requirements analysis to production engineering — with the degree and credentials beside the roles."
           />

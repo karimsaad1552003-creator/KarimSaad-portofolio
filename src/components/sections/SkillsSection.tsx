@@ -4,15 +4,16 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function SkillsSection() {
   const categories = portfolioData.skills;
+  const spoken = portfolioData.personal.languages;
 
   return (
     <section id="skills" className="section-pad">
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="04  /  Capabilities"
+            eyebrow="05  /  Capabilities"
             title="A stack you can scan in one pass"
-            description="Languages, data, machine learning, analysis, security, and the client-facing skills I use alongside them."
+            description="Full-stack web, integrations, data, machine learning, and IoT — plus the languages I work and communicate in."
           />
         </Reveal>
 
@@ -36,6 +37,24 @@ export function SkillsSection() {
               </article>
             </Reveal>
           ))}
+
+          {spoken.length ? (
+            <Reveal delay={200}>
+              <article className="flex h-full flex-col rounded-[1.5rem] border border-[var(--border)] bg-[var(--bg-elevated)] p-6">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--accent)]">
+                  Languages I speak
+                </p>
+                <dl className="mt-4 divide-y divide-[var(--border)]">
+                  {spoken.map((lang) => (
+                    <div key={lang.name} className="flex items-baseline justify-between gap-4 py-2.5 first:pt-0 last:pb-0">
+                      <dt className="text-sm text-[var(--text)]">{lang.name}</dt>
+                      <dd className="text-xs text-[var(--text-subtle)]">{lang.level}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </article>
+            </Reveal>
+          ) : null}
         </div>
       </div>
     </section>

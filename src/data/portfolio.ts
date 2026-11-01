@@ -245,9 +245,34 @@ export const portfolioData: PortfolioData = {
 
   skills: [
     {
+      id: "frontend",
+      label: "Full Stack · Front end",
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Flutter",
+        "Responsive UI",
+      ],
+    },
+    {
+      id: "backend",
+      label: "Full Stack · Back end & data",
+      skills: ["NestJS", ".NET", "Python", "PostgreSQL", "Redis"],
+    },
+    {
+      id: "iot",
+      label: "IoT & hardware",
+      skills: ["Raspberry Pi", "Arduino", "QR access control", "Offline-first systems"],
+    },
+    {
       id: "languages",
       label: "Programming Languages",
-      skills: ["Python", "Java", "C", "SQL"],
+      skills: ["Python", "Java", "C", "SQL", "JavaScript", "TypeScript"],
     },
     {
       id: "ai-ml",
@@ -257,17 +282,17 @@ export const portfolioData: PortfolioData = {
     {
       id: "data",
       label: "Data Science & Analytics",
-      skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Power BI", "Tableau", "Excel"],
+      skills: ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
+    },
+    {
+      id: "bi",
+      label: "Business Intelligence",
+      skills: ["Power BI", "Tableau", "Excel", "Interactive dashboards", "Data modeling"],
     },
     {
       id: "software",
       label: "Software & Analysis",
       skills: ["Requirements analysis", "ERD / data modeling", "Technical specifications", "Microsoft Project"],
-    },
-    {
-      id: "security",
-      label: "Networking & Security",
-      skills: ["Cisco CyberOps Associate (CBROPS)"],
     },
     {
       id: "professional",

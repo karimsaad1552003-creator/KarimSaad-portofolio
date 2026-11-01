@@ -18,7 +18,7 @@ export function ClientWorkSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="02  /  In the field"
+            eyebrow="03  /  In the field"
             title="Websites and systems that are live"
             description="US business sites delivered with Vertex Reviews, and school and gate systems running through Ascendra."
           />

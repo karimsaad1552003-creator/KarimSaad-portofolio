@@ -9,11 +9,11 @@ export function AboutSection() {
   const [lead, ...rest] = personal.about;
 
   return (
-    <section id="about" className="section-pad border-y border-[var(--border)] bg-[var(--bg-elevated)]">
+    <section id="about" className="section-pad border-t border-[var(--border)]">
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="05  /  Profile"
+            eyebrow="01  /  Profile"
             title="The short version"
             description="Information Systems graduate shipping full-stack products, with a background in data, AI, and client work."
           />
@@ -31,7 +31,7 @@ export function AboutSection() {
                   className="aspect-[4/5] w-full object-cover object-[center_22%]"
                 />
               </div>
-              <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--bg)] p-4">
+              <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--bg-elevated)] p-4">
                 <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-[var(--accent)]">
                   {personal.location}
                 </p>
@@ -77,7 +77,7 @@ export function AboutSection() {
             <Reveal delay={220}>
               <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--border)] sm:grid-cols-3">
                 {personal.languages.map((lang) => (
-                  <div key={lang.name} className="bg-[var(--bg)] px-4 py-4">
+                  <div key={lang.name} className="bg-[var(--bg-elevated)] px-4 py-4">
                     <dt className="text-sm text-[var(--text)]">{lang.name}</dt>
                     <dd className="mt-1 text-xs text-[var(--text-subtle)]">{lang.level}</dd>
                   </div>

@@ -12,7 +12,7 @@ export function ProjectsSection() {
   if (!projects.length) return null;
 
   return (
-    <section id="projects" className="section-pad">
+    <section id="projects" className="section-pad border-t border-[var(--border)]">
       <div className="container-page">
         <Reveal>
           <SectionHeading

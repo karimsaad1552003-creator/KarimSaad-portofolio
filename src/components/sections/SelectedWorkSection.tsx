@@ -101,7 +101,7 @@ export function SelectedWorkSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="01  /  Selected work"
+            eyebrow="02  /  Selected work"
             title="Production products, shipped"
             description="Platforms, a technology studio, and applied AI — the work a hiring manager should see first."
           />
