@@ -239,8 +239,8 @@ export const portfolioData: PortfolioData = {
 
   stats: [
     { value: "20+", label: "Client websites delivered" },
-    { value: "2", label: "Schools running our systems" },
-    { value: "1", label: "Gate access system deployed" },
+    { value: "25+", label: "Projects delivered" },
+    { value: "1+", label: "Year of experience" },
   ],
 
   skills: [

@@ -66,7 +66,7 @@ export function HeroSection() {
           ))}
         </dl>
 
-        <SocialLinks className="mt-8" />
+        <SocialLinks className="mt-8" exclude={["website"]} variant="pill" />
       </div>
     </section>
   );
