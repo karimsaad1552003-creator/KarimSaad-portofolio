@@ -2,7 +2,8 @@
 # Render with: python -m rendercv render data/Karim_Mohamed_Saad_CV.yaml
 cv:
   name: Karim Mohamed Saad
-  location: Alexandria, Egypt
+  headline: Full Stack Developer / Data Analyst
+  location: Egypt
   email: karimsaad1552003@gmail.com
   phone: '+201145222298'
   website: https://karim-saad-portofolio.vercel.app/
@@ -13,10 +14,11 @@ cv:
       username: karimsaad1552003-creator
   sections:
     Professional Summary:
-      - Information Systems graduate from the Arab Academy for Science, Technology & Maritime Transport with hands-on
-        experience in full-stack development and data analysis. At Ascendra, I build school and gate systems, and through
-        Ascendra's collaboration with Vertex Reviews I delivered 20+ websites for US businesses. I also build Power BI
-        dashboards and machine learning workflows, and completed a machine and deep learning internship at Telecom Egypt.
+      - Information Systems graduate (AAST, 2026) working across full-stack development and data analysis. Builds client
+        software at Ascendra, including school management and gate access systems, and has delivered 20+ websites for US
+        businesses with Vertex Reviews. Turns data into insight with Power BI dashboards and Python machine learning
+        workflows, with hands-on ML experience from Telecom Egypt. Client-facing sales experience adds strong
+        communication and requirements-gathering skills.
     Education:
       - institution: Arab Academy for Science, Technology & Maritime Transport
         area: College of Computing and Information Technology

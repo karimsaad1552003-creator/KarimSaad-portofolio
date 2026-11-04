@@ -6,7 +6,7 @@
   name: "Karim Mohamed Saad",
   title: "Karim Mohamed Saad - CV",
   footer: context { [#emph[Karim Mohamed Saad - Page #str(here().page()) of #str(counter(page).final().first())]] },
-  top-note: [ #emph[Last updated in Oct 2026] ],
+  top-note: [ #emph[Last updated in Nov 2026] ],
   locale-catalog-language: "en",
   text-direction: ltr,
   page-size: "us-letter",
@@ -80,16 +80,18 @@
   entries-highlights-space-between-bullet-and-text: 0.5em,
   date: datetime(
     year: 2026,
-    month: 10,
-    day: 30,
+    month: 11,
+    day: 4,
   ),
 )
 
 
 = Karim Mohamed Saad
 
+  #headline([Full Stack Developer \/ Data Analyst])
+
 #connections(
-  [#connection-with-icon("location-dot")[Alexandria, Egypt]],
+  [#connection-with-icon("location-dot")[Egypt]],
   [#link("mailto:karimsaad1552003@gmail.com", icon: false, if-underline: false, if-color: false)[#connection-with-icon("envelope")[karimsaad1552003\@gmail.com]]],
   [#link("tel:+20-11-45222298", icon: false, if-underline: false, if-color: false)[#connection-with-icon("phone")[011 45222298]]],
   [#link("https://karim-saad-portofolio.vercel.app/", icon: false, if-underline: false, if-color: false)[#connection-with-icon("link")[karim-saad-portofolio.vercel.app]]],
@@ -100,7 +102,7 @@
 
 == Professional Summary
 
-Information Systems graduate from the Arab Academy for Science, Technology & Maritime Transport with hands-on experience in full-stack development and data analysis. At Ascendra, I build school and gate systems, and through Ascendra's collaboration with Vertex Reviews I delivered 20+ websites for US businesses. I also build Power BI dashboards and machine learning workflows, and completed a machine and deep learning internship at Telecom Egypt.
+Information Systems graduate (AAST, 2026) working across full-stack development and data analysis. Builds client software at Ascendra, including school management and gate access systems, and has delivered 20+ websites for US businesses with Vertex Reviews. Turns data into insight with Power BI dashboards and Python machine learning workflows, with hands-on ML experience from Telecom Egypt. Client-facing sales experience adds strong communication and requirements-gathering skills.
 
 == Education
 
