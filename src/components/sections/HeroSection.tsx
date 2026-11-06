@@ -46,8 +46,8 @@ export function HeroSection() {
           ) : null}
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            <LinkButton href="/#work" variant="primary" size="lg">
-              View selected work
+            <LinkButton href="/#client-work" variant="primary" size="lg">
+              View live work
               <ArrowDownRight className="h-4 w-4" />
             </LinkButton>
             <LinkButton href={cv.downloadUrl} download={cv.fileName} variant="secondary" size="lg">

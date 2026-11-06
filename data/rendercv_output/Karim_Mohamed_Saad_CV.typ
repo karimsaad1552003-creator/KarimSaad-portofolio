@@ -5,7 +5,7 @@
 #show: rendercv.with(
   name: "Karim Mohamed Saad",
   title: "Karim Mohamed Saad - CV",
-  footer: context { [#emph[Karim Mohamed Saad - Page #str(here().page()) of #str(counter(page).final().first())]] },
+  footer: context { [Page #str(here().page()) of #str(counter(page).final().first())] },
   top-note: [ #emph[Last updated in Nov 2026] ],
   locale-catalog-language: "en",
   text-direction: ltr,
@@ -15,7 +15,7 @@
   page-left-margin: 0.7in,
   page-right-margin: 0.7in,
   page-show-footer: true,
-  page-show-top-note: true,
+  page-show-top-note: false,
   colors-body: rgb(0, 0, 0),
   colors-name: rgb(0, 79, 144),
   colors-headline: rgb(0, 79, 144),
@@ -25,7 +25,7 @@
   colors-footer: rgb(128, 128, 128),
   colors-top-note: rgb(128, 128, 128),
   typography-line-spacing: 0.6em,
-  typography-alignment: "justified",
+  typography-alignment: "left",
   typography-date-and-location-column-alignment: right,
   typography-font-family-body: "Source Sans 3",
   typography-font-family-name: "Source Sans 3",
@@ -53,9 +53,9 @@
   header-space-below-headline: 0.7cm,
   header-space-below-connections: 0.7cm,
   header-connections-hyperlink: true,
-  header-connections-show-icons: true,
+  header-connections-show-icons: false,
   header-connections-display-urls-instead-of-usernames: false,
-  header-connections-separator: "",
+  header-connections-separator: " | ",
   header-connections-space-between-connections: 0.5cm,
   section-titles-type: "with_partial_line",
   section-titles-line-thickness: 0.5pt,
@@ -72,7 +72,7 @@
   entries-degree-width: 1cm,
   entries-summary-space-left: 0cm,
   entries-summary-space-above: 0cm,
-  entries-highlights-bullet:  "•" ,
+  entries-highlights-bullet:  "-" ,
   entries-highlights-nested-bullet:  "•" ,
   entries-highlights-space-left: 0.15cm,
   entries-highlights-space-above: 0cm,
@@ -81,7 +81,7 @@
   date: datetime(
     year: 2026,
     month: 11,
-    day: 4,
+    day: 6,
   ),
 )
 
@@ -91,12 +91,12 @@
   #headline([Full Stack Developer \/ Data Analyst])
 
 #connections(
-  [#connection-with-icon("location-dot")[Egypt]],
-  [#link("mailto:karimsaad1552003@gmail.com", icon: false, if-underline: false, if-color: false)[#connection-with-icon("envelope")[karimsaad1552003\@gmail.com]]],
-  [#link("tel:+20-11-45222298", icon: false, if-underline: false, if-color: false)[#connection-with-icon("phone")[011 45222298]]],
-  [#link("https://karim-saad-portofolio.vercel.app/", icon: false, if-underline: false, if-color: false)[#connection-with-icon("link")[karim-saad-portofolio.vercel.app]]],
-  [#link("https://linkedin.com/in/karimmsaad", icon: false, if-underline: false, if-color: false)[#connection-with-icon("linkedin")[karimmsaad]]],
-  [#link("https://github.com/karimsaad1552003-creator", icon: false, if-underline: false, if-color: false)[#connection-with-icon("github")[karimsaad1552003-creator]]],
+  [Egypt],
+  [#link("mailto:karimsaad1552003@gmail.com", icon: false, if-underline: false, if-color: false)[karimsaad1552003\@gmail.com]],
+  [#link("tel:+20-11-45222298", icon: false, if-underline: false, if-color: false)[+20 11 45222298]],
+  [#link("https://karim-saad-portofolio.vercel.app/", icon: false, if-underline: false, if-color: false)[karim-saad-portofolio.vercel.app]],
+  [#link("https://www.linkedin.com/in/karimmsaad", icon: false, if-underline: false, if-color: false)[LinkedIn: linkedin.com\/in\/karimmsaad]],
+  [#link("https://github.com/karimsaad1552003-creator", icon: false, if-underline: false, if-color: false)[GitHub: github.com\/karimsaad1552003-creator]],
 )
 
 
@@ -116,7 +116,7 @@ Information Systems graduate (AAST, 2026) working across full-stack development 
   [
     Alexandria, Egypt
 
-    2022 – 2026
+    2022 - 2026
 
   ],
   degree-column: [
@@ -154,11 +154,11 @@ Information Systems graduate (AAST, 2026) working across full-stack development 
   [
     Alexandria, Egypt
 
-    Apr 2026 – present
+    Apr 2026 - present
 
   ],
   main-column-second-row: [
-    - Live site: #link("https://ascendrasol.com/")[ascendrasol.com]
+    - Live site: https:\/\/ascendrasol.com
 
   ],
 )
@@ -167,17 +167,17 @@ Information Systems graduate (AAST, 2026) working across full-stack development 
   [
     #strong[Vertex Reviews], Full Stack Developer
 
-    #summary[Work with Vertex Reviews through its collaboration with Ascendra, which runs Vertex's back-end services. Delivered 20+ websites and business rebranding through logos, flyers, and printable menus.]
+    #summary[Work with Vertex Reviews through its collaboration with Ascendra, which runs Vertex's backend services. Delivered 20+ websites and business rebranding through logos, flyers, and printable menus.]
 
   ],
   [
     New Jersey, USA (Remote)
 
-    Apr 2026 – present
+    Apr 2026 - present
 
   ],
   main-column-second-row: [
-    - Live site: #link("https://www.vertexreviews.com")[vertexreviews.com]
+    - Live site: https:\/\/www.vertexreviews.com
 
   ],
 )
@@ -192,7 +192,7 @@ Information Systems graduate (AAST, 2026) working across full-stack development 
   [
     Egypt
 
-    Aug 2025 – Oct 2026
+    Aug 2025 - Oct 2026
 
   ],
   main-column-second-row: [
@@ -209,7 +209,7 @@ Information Systems graduate (AAST, 2026) working across full-stack development 
   [
     Egypt
 
-    Jan 2025 – Feb 2025
+    Jan 2025 - Feb 2025
 
   ],
   main-column-second-row: [
@@ -226,7 +226,7 @@ Information Systems graduate (AAST, 2026) working across full-stack development 
   [
     Egypt
 
-    July 2024 – Aug 2024
+    July 2024 - Aug 2024
 
   ],
   main-column-second-row: [
@@ -255,23 +255,23 @@ Information Systems graduate (AAST, 2026) working across full-stack development 
 
 == Certifications
 
-- Cisco CyberOps Associate (CBROPS) – NTI, Excellent (2024)
+- Cisco CyberOps Associate (CBROPS) - NTI, Excellent (2024)
 
-- Odoo Technical Bootcamp – 8-hour technical course (2026)
+- Odoo Technical Bootcamp - 8-hour technical course (2026)
 
-- DELF B1 (French) – French Ministry of National Education (2018)
+- DELF B1 (French) - French Ministry of National Education (2018)
 
 == Projects
 
   #regular-entry(
   [
-    #strong[VulnGPT – AI-Assisted Web Vulnerability Analysis Engine]
+    #strong[VulnGPT - AI-Assisted Web Vulnerability Analysis Engine]
 
   ],
   [
   ],
   main-column-second-row: [
-    #summary[AI-powered web security testing platform using HTTP\/HTTPS traffic analysis, controlled security testing, and evidence-based reporting.]
+    #summary[AI-powered web security testing platform using HTTP\/HTTPS traffic analysis, controlled security testing, and evidence based reporting.]
 
     - AI-assisted vulnerability analysis, risk prioritization, false-positive verification, and remediation recommendations.
 

@@ -16,7 +16,7 @@ export function ProjectsSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="06  /  Also built"
+            eyebrow="04  /  Also built"
             title="Analysis, models, and system design"
             description="Dashboards, machine-learning workflows, data modeling, and project planning. Open any row for the full write-up."
           />

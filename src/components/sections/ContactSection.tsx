@@ -52,7 +52,7 @@ export function ContactSection() {
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="07  /  Contact"
+            eyebrow="05  /  Contact"
             title="If the work fits, let's talk."
             description="Hiring managers and recruiters — write directly about software, data, or AI roles."
           />

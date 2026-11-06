@@ -1,10 +1,7 @@
 import { portfolioData } from "@/data/portfolio";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import { ExternalLink, FileText } from "lucide-react";
-import { EducationList } from "./EducationSection";
-import { CertificationGrid } from "./CertificationsSection";
 
 function typeLabel(type: string) {
   return type
@@ -13,58 +10,11 @@ function typeLabel(type: string) {
     .join("-");
 }
 
-export function ExperienceSection() {
-  return (
-    <section
-      id="experience"
-      className="section-pad border-y border-[var(--border)] bg-[var(--bg-elevated)]"
-    >
-      <div className="container-page">
-        <Reveal>
-          <SectionHeading
-            eyebrow="04  /  Career"
-            title="Where I've worked, and what I shipped"
-            description="From internships in machine learning and requirements analysis to production engineering — with the degree and credentials beside the roles."
-          />
-        </Reveal>
-
-        <ExperienceList />
-
-        <div id="education" className="mt-20 scroll-mt-28">
-          <Reveal>
-            <SectionHeading
-              size="md"
-              eyebrow="Education"
-              title="The degree behind the work"
-            />
-          </Reveal>
-          <div className="mt-8">
-            <EducationList />
-          </div>
-        </div>
-
-        <div id="certifications" className="mt-20 scroll-mt-28">
-          <Reveal>
-            <SectionHeading
-              size="md"
-              eyebrow="Certifications"
-              title="Credentials I can show"
-            />
-          </Reveal>
-          <div className="mt-8">
-            <CertificationGrid />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ExperienceList() {
+export function ExperienceList() {
   const items = portfolioData.experience;
 
   return (
-    <ol className="mt-12 space-y-5">
+    <ol className="space-y-5">
       {items.map((item, index) => (
         <li key={item.id}>
           <Reveal delay={Math.min(index * 40, 160)}>

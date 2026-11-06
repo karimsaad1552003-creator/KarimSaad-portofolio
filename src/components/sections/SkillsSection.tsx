@@ -7,11 +7,11 @@ export function SkillsSection() {
   const spoken = portfolioData.personal.languages;
 
   return (
-    <section id="skills" className="section-pad">
+    <section id="skills" className="section-pad border-t border-[var(--border)]">
       <div className="container-page">
         <Reveal>
           <SectionHeading
-            eyebrow="05  /  Capabilities"
+            eyebrow="03  /  Capabilities"
             title="A stack you can scan in one pass"
             description="Full-stack web, integrations, data, machine learning, and IoT — plus the languages I work and communicate in."
           />

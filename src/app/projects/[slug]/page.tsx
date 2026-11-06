@@ -56,8 +56,8 @@ export default async function ProjectPage({ params }: PageProps) {
 
   const study = project.caseStudy;
   const technologies = study?.technologies?.length ? study.technologies : project.technologies;
-  const backHref = project.featured ? "/#work" : "/#projects";
-  const backLabel = project.featured ? "Selected work" : "Projects";
+  const backHref = project.featured ? "/#client-work" : "/#projects";
+  const backLabel = project.featured ? "In the field" : "Projects";
 
   return (
     <article className="pt-28 md:pt-32">

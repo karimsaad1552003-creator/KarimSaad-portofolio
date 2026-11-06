@@ -118,6 +118,7 @@ export type SystemProject = {
   features: string[];
   tags: string[];
   icon: "school" | "admin" | "gate";
+  screens?: { src: string; label: string; width: number; height: number }[];
 };
 
 export type PortfolioData = {
@@ -181,11 +182,8 @@ export const portfolioData: PortfolioData = {
     shortBio:
       "Information Systems graduate and full-stack developer specializing in data analysis, AI, and shipping real products for businesses across Egypt and the US.",
     about: [
-      "I am an Information Systems graduate (2026) from the College of Computing and Information Technology at the Arab Academy for Science, Technology & Maritime Transport. I focus on data analysis and artificial intelligence, and I ship production software as a full-stack developer.",
-      "As a Full Stack Developer at Ascendra, and on Vertex Reviews through the collaboration in which Ascendra runs Vertex's back-end services, I work on real products — from conversion-focused business platforms to custom software systems serving clients internationally.",
-      "I also worked as a real estate sales agent at ElitePlus (Aug 2025 – Oct 2026), which strengthened my client-facing communication, negotiation, and relationship-building skills — capabilities I bring into technical collaboration and stakeholder discussions.",
-      "I enjoy problems that sit at the intersection of software engineering, data, and product: turning messy requirements into clear systems, interactive analytics, and experiences that hold up in production.",
-      "I am currently strengthening my profile toward competitive software engineering, data, and AI roles at major technology companies, startups, and international organizations.",
+      "Information Systems graduate (AAST, 2026) and full-stack developer. I ship production software at Ascendra — school and gate systems, plus client websites with Vertex Reviews — and I work with data, BI, and machine learning.",
+      "Sales work at ElitePlus sharpened how I talk with clients and turn requirements into working systems. I am aiming at roles where software, data, and AI meet real business problems.",
     ],
     focusAreas: [
       "Full-stack product development",
@@ -218,16 +216,6 @@ export const portfolioData: PortfolioData = {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/karimmsaad",
       icon: "linkedin",
-    },
-    {
-      label: "Ascendra",
-      href: "https://ascendrasol.com/",
-      icon: "website",
-    },
-    {
-      label: "Vertex Reviews",
-      href: "https://www.vertexreviews.com",
-      icon: "website",
     },
   ],
 
@@ -730,16 +718,24 @@ export const portfolioData: PortfolioData = {
     {
       id: "helalia",
       name: "HELALIA Language School App",
-      kind: "Parent & teacher app",
+      kind: "Parent, teacher & office app",
       summary:
-        "Bilingual school app in English and Arabic, with separate experiences for parents, teachers, and the school office under one login.",
+        "School app for HELALIA Language School. Parents, teachers, and the office share one login, in English and Arabic, for homework, attendance, and day-to-day school life.",
       features: [
-        "Parents: homework, attendance, results, weekly plan, and school alerts",
-        "Teachers: classes, attendance, homework publishing, and messages",
-        "Office control panel for students, classes, staff, and events",
+        "Parents follow each child: alerts, homework by subject, calendar, results, and messages to the school",
+        "Teachers run classes, attendance, homework, and the day’s timetable from one dashboard",
+        "Office control panel for students, teachers, classes, results, events, staff, and app accounts",
       ],
       tags: ["English / Arabic", "Parents", "Teachers", "School office"],
       icon: "school",
+      screens: [
+        { src: "/assets/systems/helalia/sign-in.webp", label: "Sign in", width: 323, height: 717 },
+        { src: "/assets/systems/helalia/my-children.webp", label: "My children", width: 780, height: 810 },
+        { src: "/assets/systems/helalia/student-hub.webp", label: "Student hub", width: 780, height: 810 },
+        { src: "/assets/systems/helalia/homework.webp", label: "Homework", width: 780, height: 810 },
+        { src: "/assets/systems/helalia/teacher.webp", label: "Teacher dashboard", width: 780, height: 810 },
+        { src: "/assets/systems/helalia/control.webp", label: "Control panel", width: 780, height: 810 },
+      ],
     },
     {
       id: "school-management",

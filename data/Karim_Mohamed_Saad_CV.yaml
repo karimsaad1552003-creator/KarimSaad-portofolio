@@ -7,11 +7,14 @@ cv:
   email: karimsaad1552003@gmail.com
   phone: '+201145222298'
   website: https://karim-saad-portofolio.vercel.app/
-  social_networks:
-    - network: LinkedIn
-      username: karimmsaad
-    - network: GitHub
-      username: karimsaad1552003-creator
+  # Plain labels and full URLs so ATS reads the network name, not an icon glyph.
+  custom_connections:
+    - fontawesome_icon: linkedin
+      placeholder: 'LinkedIn: linkedin.com/in/karimmsaad'
+      url: https://www.linkedin.com/in/karimmsaad
+    - fontawesome_icon: github
+      placeholder: 'GitHub: github.com/karimsaad1552003-creator'
+      url: https://github.com/karimsaad1552003-creator
   sections:
     Professional Summary:
       - Information Systems graduate (AAST, 2026) working across full-stack development and data analysis. Builds client
@@ -23,7 +26,7 @@ cv:
       - institution: Arab Academy for Science, Technology & Maritime Transport
         area: College of Computing and Information Technology
         degree: BSc
-        date: 2022 – 2026
+        date: 2022 - 2026
         location: Alexandria, Egypt
         summary: Information Systems
       - institution: Collège Saint-Marc
@@ -38,16 +41,16 @@ cv:
         summary: Build school systems and gate systems at a technology studio delivering custom software, websites, and IoT
           systems for clients in Egypt and the United States.
         highlights:
-          - 'Live site: [ascendrasol.com](https://ascendrasol.com/)'
+          - 'Live site: https://ascendrasol.com'
       - company: Vertex Reviews
         position: Full Stack Developer
         start_date: 2026-04
         end_date: present
         location: New Jersey, USA (Remote)
-        summary: Work with Vertex Reviews through its collaboration with Ascendra, which runs Vertex's back-end services.
+        summary: Work with Vertex Reviews through its collaboration with Ascendra, which runs Vertex's backend services.
           Delivered 20+ websites and business rebranding through logos, flyers, and printable menus.
         highlights:
-          - 'Live site: [vertexreviews.com](https://www.vertexreviews.com)'
+          - 'Live site: https://www.vertexreviews.com'
       - company: ElitePlus
         position: Real Estate Agent (Sales)
         start_date: 2025-08
@@ -86,13 +89,13 @@ cv:
       - label: French
         details: Fluent (DELF B1)
     Certifications:
-      - bullet: Cisco CyberOps Associate (CBROPS) – NTI, Excellent (2024)
-      - bullet: Odoo Technical Bootcamp – 8-hour technical course (2026)
-      - bullet: DELF B1 (French) – French Ministry of National Education (2018)
+      - bullet: Cisco CyberOps Associate (CBROPS) - NTI, Excellent (2024)
+      - bullet: Odoo Technical Bootcamp - 8-hour technical course (2026)
+      - bullet: DELF B1 (French) - French Ministry of National Education (2018)
     Projects:
-      - name: VulnGPT – AI-Assisted Web Vulnerability Analysis Engine
+      - name: VulnGPT - AI-Assisted Web Vulnerability Analysis Engine
         summary: AI-powered web security testing platform using HTTP/HTTPS traffic analysis, controlled security testing, and
-          evidence-based reporting.
+          evidence based reporting.
         highlights:
           - AI-assisted vulnerability analysis, risk prioritization, false-positive verification, and remediation
             recommendations.
@@ -110,13 +113,26 @@ cv:
         summary: Scope, tasks, timelines, resources, Gantt chart, and milestones.
 design:
   theme: classic
+  page:
+    show_top_note: false
+  typography:
+    # Left alignment avoids justified spacing and line-break hyphens that ATS can misread.
+    alignment: left
+  header:
+    connections:
+      show_icons: false
+      phone_number_format: international
+      separator: ' | '
+  entries:
+    short_second_row: false
+    highlights:
+      bullet: '-'
   sections:
     space_between_regular_entries: 0.5em
     show_time_spans_in: []
-  entries:
-    short_second_row: false
   templates:
-    footer: '*NAME - Page PAGE_NUMBER of TOTAL_PAGES*'
+    footer: 'Page PAGE_NUMBER of TOTAL_PAGES'
+    date_range: 'START_DATE - END_DATE'
 locale:
   language: english
 settings:
